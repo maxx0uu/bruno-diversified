@@ -1,0 +1,44 @@
+{
+  "id": "get_app",
+  "type": "SharedSlice",
+  "name": "GetApp",
+  "description": "GetApp",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "qr_code": {
+          "type": "Image",
+          "config": { "label": "QR code", "constraint": {}, "thumbnails": [] }
+        },
+        "android_app": {
+          "type": "Link",
+          "config": {
+            "label": "Android app",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "ios_app": {
+          "type": "Link",
+          "config": { "label": "Ios app", "placeholder": "", "select": null }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

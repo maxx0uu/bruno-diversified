@@ -1,0 +1,14 @@
+$breakPoint_tablet: 1248px;
+$breakPoint_mobile: 700px;
+
+@media ($breakPoint_mobile <= width <= $breakPoint_tablet) and (orientation: portrait) {
+}
+
+@media ($breakPoint_mobile <= width <= $breakPoint_tablet) and (orientation: landscape) {
+}
+
+@media ($breakPoint_mobile <= width <= $breakPoint_tablet) {
+}
+
+@media (width <= $breakPoint_mobile) {
+}

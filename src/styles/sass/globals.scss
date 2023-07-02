@@ -1,0 +1,22 @@
+/* ------------------------------------------------- */
+/* ******************* PARTIALS ******************** */
+/* ------------------------------------------------- */
+
+@import "./common/reset";
+@import "./common/colors";
+@import "./common/font-family";
+@import "./common/texts";
+@import "./common/grid-responsive";
+@import "./common/breakpoints";
+@import "./common/mixins";
+
+/* ------------------------------------------------- */
+/* ****************** COMPONENTS ******************* */
+/* ------------------------------------------------- */
+
+@import "./partials/main";
+@import "./partials/hero";
+@import "./partials/logos";
+@import "./partials/intro";
+@import "./partials/features";
+@import "./partials/howWorks";

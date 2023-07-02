@@ -1,0 +1,41 @@
+/* ------------------------------------------------- */
+/* ****************** FONT FACES ******************* */
+/* ------------------------------------------------- */
+
+@font-face {
+	font-family: "Brick-Display-Black";
+	src: url(/assets/fonts/BrickDisplayPro-Black.woff2);
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Inter-ExtraBold";
+	src: url(/assets/fonts/Inter/Inter-ExtraBold.ttf);
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Inter-Bold";
+	src: url(/assets/fonts/Inter/Inter-Bold.ttf);
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Inter-Regular";
+	src: url(/assets/fonts/Inter/Inter-Regular.ttf);
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* ------------------------------------------------- */
+/* ******************* VARIABLES ******************* */
+/* ------------------------------------------------- */
+
+$font_1_bold: Brick-Display-Black;
+
+$font_2_regular: Inter-Regular;
+$font_2_bold: Inter-Bold;
+$font_2_extrabold: Inter-ExtraBold;

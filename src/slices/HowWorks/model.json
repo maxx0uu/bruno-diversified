@@ -1,0 +1,68 @@
+{
+  "id": "how_works",
+  "type": "SharedSlice",
+  "name": "HowWorks",
+  "description": "HowWorks",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "mockup": {
+          "type": "Image",
+          "config": { "label": "Mockup", "constraint": {}, "thumbnails": [] }
+        },
+        "screen": {
+          "type": "Image",
+          "config": { "label": "Screen", "constraint": {}, "thumbnails": [] }
+        }
+      },
+      "items": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading5"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "preview": {
+          "type": "Image",
+          "config": { "label": "Preview", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    }
+  ]
+}

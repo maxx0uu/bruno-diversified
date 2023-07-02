@@ -1,0 +1,39 @@
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	@include styleGrid("wrapper");
+}
+
+/* ------------------------------------------------- */
+/* ****************** FONT STYLE ******************* */
+/* ------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font_1_bold;
+}
+h1 {
+	@include styleH("h1");
+}
+h2 {
+	@include styleH("h2");
+}
+h3 {
+	@include styleH("h3");
+}
+h4 {
+	@include styleH("h4");
+}
+h5 {
+	@include styleH("h5");
+}
+h6 {
+	@include styleH("h6");
+}
+
+p {
+	font-family: $font_2_regular;
+}

@@ -1,0 +1,141 @@
+{
+  "id": "simulation",
+  "type": "SharedSlice",
+  "name": "Simulation",
+  "description": "Simulation",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "testimonials_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testimonials title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "first_item_name": {
+          "type": "Text",
+          "config": { "label": "First item name", "placeholder": "" }
+        },
+        "first_item_author": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First item author",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "first_item_image": {
+          "type": "Image",
+          "config": {
+            "label": "First item image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "second_item_name": {
+          "type": "Text",
+          "config": { "label": "Second item name", "placeholder": "" }
+        },
+        "second_item_author": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second item author",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "second_item_image": {
+          "type": "Image",
+          "config": {
+            "label": "Second item image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "note": {
+          "type": "Select",
+          "config": {
+            "label": "Note",
+            "placeholder": "",
+            "options": ["1", "2", "3", "4", "5"]
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "picture": {
+          "type": "Image",
+          "config": {
+            "label": "Picture",
+            "constraint": { "width": 40, "height": 40 },
+            "thumbnails": []
+          }
+        },
+        "name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "job": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Job",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "cta",
+  "label": "CTA",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "text": {
+        "type": "Text",
+        "config": { "label": "Text", "placeholder": "" }
+      },
+      "url": {
+        "type": "Link",
+        "config": { "label": "URL", "placeholder": "", "select": null }
+      },
+      "variant": {
+        "type": "Select",
+        "config": {
+          "label": "Variant",
+          "placeholder": "",
+          "options": ["Primary", "White-BG", "Black-BG"]
+        }
+      }
+    }
+  }
+}

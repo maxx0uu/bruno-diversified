@@ -1,0 +1,64 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Hero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "premium": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Premium",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,hyperlink"
+          }
+        }
+      },
+      "items": {
+        "cp_icon": {
+          "type": "Image",
+          "config": {
+            "label": "CP icon",
+            "constraint": { "width": 24, "height": 24 },
+            "thumbnails": []
+          }
+        },
+        "cp_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CP body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong"
+          }
+        }
+      }
+    }
+  ]
+}
