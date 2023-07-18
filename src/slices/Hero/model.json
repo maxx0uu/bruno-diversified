@@ -38,6 +38,22 @@
             "allowTargetBlank": true,
             "single": "paragraph,hyperlink"
           }
+        },
+        "gallery_column_1": {
+          "type": "Link",
+          "config": {
+            "label": "Gallery column 1",
+            "select": "document",
+            "customtypes": ["gallery_carousel"]
+          }
+        },
+        "gallery_column_2": {
+          "type": "Link",
+          "config": {
+            "label": "Gallery column 2",
+            "select": "document",
+            "customtypes": ["gallery_carousel"]
+          }
         }
       },
       "items": {

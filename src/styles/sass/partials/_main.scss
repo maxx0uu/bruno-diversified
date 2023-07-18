@@ -1,6 +1,8 @@
+.bot-spacer {
+	height: 600px;
+}
+
 .wrapper {
-	margin-left: auto;
-	margin-right: auto;
 	@include styleGrid("wrapper");
 }
 
@@ -36,4 +38,58 @@ h6 {
 
 p {
 	font-family: $font_2_regular;
+}
+
+// CTA
+.cta-primary {
+	background-color: $night;
+	color: $colorGreyscale_6;
+	height: 40px;
+	padding: 12px 24px;
+	border-radius: 30px;
+	font-family: $font_2_extrabold;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all .25ms;
+	&:hover {
+		background-color: #161c63;
+		transition: all .25ms;
+	}
+}
+.cta-white-bg {
+	border: 1.5px solid $colorGreyscale_1;
+	color: $colorGreyscale_1;
+	height: 40px;
+	padding: 12px 24px;
+	border-radius: 30px;
+	font-family: $font_2_extrabold;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all .25ms;
+	&:hover {
+		background-color: $colorGreyscale_1;
+		color: $colorGreyscale_6;
+		transition: all .25ms;
+	}
+}
+.cta-black-bg {
+	border: 1.5px solid $colorGreyscale_6;
+	color: $colorGreyscale_6;
+	height: 40px;
+	padding: 12px 24px;
+	border-radius: 30px;
+	font-family: $font_2_extrabold;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&:hover {
+		background-color: $colorGreyscale_6;
+		color: $colorGreyscale_1;
+		transition: all .25ms;
+	}
 }

@@ -47,9 +47,12 @@
 				position: relative;
 				width: auto;
 				height: auto;
+				.mockup {
+					transform: translateY(4px);
+				}
 				.default-screen {
 					position: absolute;
-					bottom: 0;
+					bottom: -4px;
 					left: 50%;
 					transform: translateX(-50%);
 				}
@@ -74,7 +77,7 @@
 				.tabs {
 					flex-direction: row;
 					gap: 0;
-					overflow: hidden;
+					overflow: scroll;
 					margin-bottom: 72px;
 					.tab {
 						flex-direction: column;

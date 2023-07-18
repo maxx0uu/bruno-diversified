@@ -1,0 +1,32 @@
+{
+  "id": "nav",
+  "type": "SharedSlice",
+  "name": "Nav",
+  "description": "Nav",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "logo": {
+          "type": "Image",
+          "config": { "label": "Logo", "constraint": {}, "thumbnails": [] }
+        }
+      },
+      "items": {
+        "nav_url": {
+          "type": "Link",
+          "config": { "label": "Nav url", "placeholder": "", "select": null }
+        },
+        "nav_text": {
+          "type": "Text",
+          "config": { "label": "Nav text", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

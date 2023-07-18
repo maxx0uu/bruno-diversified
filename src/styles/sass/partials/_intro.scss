@@ -20,6 +20,10 @@
 				@include styleP("medium");
 				margin-bottom: 40px;
 			}
+			.ctas {
+				display: flex;
+				gap: 8px;
+			}
 		}
 	}
 }
@@ -41,6 +45,9 @@
 			}
 			.texts {
 				width: 100%;
+				.ctas {
+					flex-direction: column;
+				}
 			}
 		}
 	}

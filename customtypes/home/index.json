@@ -24,7 +24,8 @@
             "gallery": { "type": "SharedSlice" },
             "get_app": { "type": "SharedSlice" },
             "one_app": { "type": "SharedSlice" },
-            "simulation": { "type": "SharedSlice" }
+            "simulation": { "type": "SharedSlice" },
+            "nav": { "type": "SharedSlice" }
           }
         }
       }

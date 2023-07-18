@@ -11,6 +11,7 @@ export const components = {
   how_works: dynamic(() => import("./HowWorks")),
   intro: dynamic(() => import("./Intro")),
   logos: dynamic(() => import("./Logos")),
+  nav: dynamic(() => import("./Nav")),
   one_app: dynamic(() => import("./OneApp")),
   simulation: dynamic(() => import("./Simulation")),
 };

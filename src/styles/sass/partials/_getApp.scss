@@ -1,0 +1,46 @@
+#section-get-app {
+  background-color: $colorGreyscale_1;
+  padding-top: 72px;
+  padding-bottom: 120px;
+  .slider {
+    position: relative;
+    overflow: hidden;
+    height: 128px;
+    margin-bottom: 40px;
+    .slider-container {
+      transform: translateX(-650px);
+      .get-app {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        position: absolute;
+      }
+    }
+    p {
+      color: $colorGreyscale_6;
+      font-family: $font_1_bold;
+      font-size: 80px;
+    }
+  }
+  .store-links {
+    display: flex;
+    justify-content: center;
+    color: $colorGreyscale_6;
+    gap: 32px;
+    .divider {
+      width: 1px;
+      background-color: $colorGreyscale_6;
+      opacity: .3;
+    }
+    .ios, .google {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      .reviews { 
+        margin-bottom: 16px;
+        color: $colorGreyscale_3;
+      }
+    }
+  }
+}

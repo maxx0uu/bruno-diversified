@@ -1,0 +1,24 @@
+#section-gallery {
+  display: none;
+  background-color: $colorGreyscale_1;
+  .wrapper-gallery {
+    @include styleGrid("width", 10);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 16px;
+    .col-1, .col-2, .col-3 {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .col-1 {
+      align-items: flex-end;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  #section-gallery {
+    display: none;
+  }
+}

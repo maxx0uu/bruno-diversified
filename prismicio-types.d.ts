@@ -52,6 +52,51 @@ interface CtaDocumentData {
  */
 export type CtaDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<CtaDocumentData>, "cta", Lang>;
+/** Content for Gallery carousel documents */
+interface GalleryCarouselDocumentData {
+  /**
+   * Gallery field in *Gallery carousel*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_carousel.gallery[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  gallery: prismic.GroupField<Simplify<GalleryCarouselDocumentDataGalleryItem>>;
+}
+/**
+ * Item in Gallery carousel → Gallery
+ *
+ */
+export interface GalleryCarouselDocumentDataGalleryItem {
+  /**
+   * Image field in *Gallery carousel → Gallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_carousel.gallery[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+}
+/**
+ * Gallery carousel document from Prismic
+ *
+ * - **API ID**: `gallery_carousel`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryCarouselDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<GalleryCarouselDocumentData>,
+    "gallery_carousel",
+    Lang
+  >;
 /** Content for Home documents */
 interface HomeDocumentData {
   /**
@@ -124,7 +169,8 @@ type HomeDocumentDataSlicesSlice =
   | GallerySlice
   | GetAppSlice
   | OneAppSlice
-  | SimulationSlice;
+  | SimulationSlice
+  | NavSlice;
 /**
  * Home document from Prismic
  *
@@ -136,7 +182,10 @@ type HomeDocumentDataSlicesSlice =
  */
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
-export type AllDocumentTypes = CtaDocument | HomeDocument;
+export type AllDocumentTypes =
+  | CtaDocument
+  | GalleryCarouselDocument
+  | HomeDocument;
 /**
  * Primary content in Faq → Primary
  *
@@ -532,6 +581,26 @@ interface HeroSliceDefaultPrimary {
    *
    */
   premium: prismic.RichTextField;
+  /**
+   * Gallery column 1 field in *Hero → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.gallery_column_1
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  gallery_column_1: prismic.ContentRelationshipField<"gallery_carousel">;
+  /**
+   * Gallery column 2 field in *Hero → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.gallery_column_2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  gallery_column_2: prismic.ContentRelationshipField<"gallery_carousel">;
 }
 /**
  * Item in Hero → Items
@@ -825,6 +894,75 @@ type LogosSliceVariation = LogosSliceDefault;
  */
 export type LogosSlice = prismic.SharedSlice<"logos", LogosSliceVariation>;
 /**
+ * Primary content in Nav → Primary
+ *
+ */
+interface NavSliceDefaultPrimary {
+  /**
+   * Logo field in *Nav → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav.primary.logo
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  logo: prismic.ImageField<never>;
+}
+/**
+ * Item in Nav → Items
+ *
+ */
+export interface NavSliceDefaultItem {
+  /**
+   * Nav url field in *Nav → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav.items[].nav_url
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  nav_url: prismic.LinkField;
+  /**
+   * Nav text field in *Nav → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav.items[].nav_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  nav_text: prismic.KeyTextField;
+}
+/**
+ * Default variation for Nav Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NavSliceDefaultPrimary>,
+  Simplify<NavSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Nav*
+ *
+ */
+type NavSliceVariation = NavSliceDefault;
+/**
+ * Nav Shared Slice
+ *
+ * - **API ID**: `nav`
+ * - **Description**: `Nav`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavSlice = prismic.SharedSlice<"nav", NavSliceVariation>;
+/**
  * Primary content in OneApp → Primary
  *
  */
@@ -1116,6 +1254,9 @@ declare module "@prismicio/client" {
     export type {
       CtaDocumentData,
       CtaDocument,
+      GalleryCarouselDocumentData,
+      GalleryCarouselDocumentDataGalleryItem,
+      GalleryCarouselDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
       HomeDocument,
@@ -1156,6 +1297,11 @@ declare module "@prismicio/client" {
       LogosSliceDefault,
       LogosSliceVariation,
       LogosSlice,
+      NavSliceDefaultPrimary,
+      NavSliceDefaultItem,
+      NavSliceDefault,
+      NavSliceVariation,
+      NavSlice,
       OneAppSliceDefaultPrimary,
       OneAppSliceDefaultItem,
       OneAppSliceDefault,
