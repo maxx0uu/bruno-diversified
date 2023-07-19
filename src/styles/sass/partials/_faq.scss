@@ -1,4 +1,5 @@
 #section-faq {
+  display: none;
   padding: 160px 0;
   background-color:$colorGreyscale_1;
   color: $colorGreyscale_6;
@@ -21,15 +22,32 @@
     .questions {
       @include styleGrid("width", 6);
       .question {
+        cursor: pointer;
         padding-top: 26px;
         padding-bottom: 26px;
         border-bottom: .5px solid #ffffffb3;
         .question-title {
           @include styleP("big", $colorGreyscale_6);
+          display: flex;
+          justify-content: space-between;
+          .question-tab-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            // border: 1px solid $colorGreyscale_6 ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg {
+              transform: rotate(180deg)
+            }
+          }
         }
         .question-body {
           @include styleP("medium", $colorGreyscale_6);     
           opacity: .7;
+          height: 0;
+          overflow: hidden;
         }
       }
     }

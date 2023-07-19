@@ -35,20 +35,20 @@
     }
     .nav-list {
       display: flex;
-      gap: 24px;
       list-style: none;
       li {
         a {
+          padding: 12px;
           position: relative;
-        &::before {
-          position: absolute;
-          width: 100%;
-          height: 2px;
-          background-color: $colorGreyscale_6;
-          bottom: -4;
-          left: 0;
-          right: 0;
-        }
+          span {
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background-color: $colorGreyscale_6;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+          }
         }
       }
     }

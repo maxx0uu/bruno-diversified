@@ -1,5 +1,4 @@
 #section-hero {
-	// display: none;
 	background-color: $night;
 	h1 {
 		color: $colorGreyscale_6;
@@ -53,40 +52,51 @@
 				}
 			}
 		}
+		// .carousels {
+		// 	width: 416px;
+		// 	display: flex;
+		// 	flex-direction: row-reverse;
+		// 	gap: 16px;
+		// 	.carousel-wrapper {
+		// 		position: relative;
+		// 		overflow: hidden;
+		// 		.carousel {
+		// 			position: relative;
+		// 			width: 200px;
+		// 			img {
+		// 				position: absolute;
+		// 				width: 200px;
+		// 				height: auto;
+		// 			}
+		// 		}
+		// 		.carousel-0 {
+		// 			top: -316px;
+		// 		}
+		// 		.carousel-1 {
+		// 			top: -366px;
+		// 		}
+		// 	}
+		// }
 		.carousels {
-			width: 416px;
 			display: flex;
-			flex-direction: row-reverse;
 			gap: 16px;
-			.carousel-wrapper {
-				position: relative;
-				overflow: hidden;
-				.carousel {
-					position: relative;
-					width: 200px;
-					img {
-						position: absolute;
-						width: 200px;
-						height: auto;
-					}
-				}
-				.carousel-0 {
-					top: -316px;
-				}
-				.carousel-1 {
-					top: -366px;
-				}
+			display: none;
+			.carousel {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
 			}
 		}
 	}
 }
 @media screen and (max-width: 768px) {
 	#section-hero {
+		overflow: hidden;
 		.wrapper-hero {
 			display: flex;
 			flex-direction: column;
 			.texts {
-				@include styleGrid("wrapper");
+				width: 100%;
 				padding-top: 144px;
 				padding-bottom: 72px;
 				.main-title {
@@ -104,6 +114,12 @@
 					.cp {
 						@include styleGrid("width", 2.5);
 					}
+				}
+			}
+			.carousels {
+				flex-direction: column;
+				.carousel {
+					flex-direction: row;
 				}
 			}
 		}
