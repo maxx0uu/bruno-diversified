@@ -1,81 +1,83 @@
 #section-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: $night;
-  z-index: 10;
-  nav {
-    @include styleGrid("wrapper");
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    gap: 64px;
-    padding: 40px 0 24px;
-    .burger {
-      display: none;
-      width: 20px;
-      height: 10px;
-      position: relative;
-      .burger-topline, .burger-botline {
-        background-color: $colorGreyscale_6;
-        height: 3px;
-        border-radius: 1.5px;
-        position: absolute;
-        left: 0;
-        right: 0;
-      }
-      &-topline {
-        top: 0;
-      }
-      &-botline {
-        bottom: 0;
-      }
-    }
-    .nav-list {
-      display: flex;
-      list-style: none;
-      li {
-        a {
-          padding: 12px;
-          position: relative;
-          span {
-            position: absolute;
-            width: 0;
-            height: 1px;
-            background-color: $colorGreyscale_6;
-            bottom: 8px;
-            left: 0;
-            right: 0;
-          }
-        }
-      }
-    }
-    a {   
-      @include styleP("small", $colorGreyscale_6);
-      text-decoration: none;
-    }
-  }
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	z-index: 10;
+	nav {
+		@include styleGrid("wrapper");
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		align-items: center;
+		gap: 64px;
+		padding: 40px 0 24px;
+		.burger {
+			display: none;
+			width: 20px;
+			height: 10px;
+			position: relative;
+			.burger-topline,
+			.burger-botline {
+				background-color: $colorGreyscale_6;
+				height: 3px;
+				border-radius: 1.5px;
+				position: absolute;
+				left: 0;
+				right: 0;
+			}
+			&-topline {
+				top: 0;
+			}
+			&-botline {
+				bottom: 0;
+			}
+		}
+		.nav-list {
+			display: flex;
+			list-style: none;
+			li {
+				a {
+					padding: 12px;
+					position: relative;
+					span {
+						position: absolute;
+						width: 0;
+						height: 1px;
+						background-color: $colorGreyscale_6;
+						bottom: 8px;
+						left: 0;
+						right: 0;
+					}
+				}
+			}
+		}
+		a {
+			@include styleP("small", $colorGreyscale_6);
+			text-decoration: none;
+		}
+	}
 }
 @media screen and (max-width: 768px) {
-  #section-nav {
-    nav {
-      justify-content: space-between;
-      .burger {
-        display: block;
-      }
-      .nav-list {
-        position: absolute;
-        background-color: $night;
-        color: $colorGreyscale_1;
-        inset: 0;
-        width: 100vw;
-        height: 100vh;
-        margin-top: 102px;
-        padding: 48px 24px;
-        flex-direction: column;
-      }
-    }
-  }
+	#section-nav {
+		background-color: $night;
+		nav {
+			justify-content: space-between;
+			.burger {
+				display: block;
+			}
+			.nav-list {
+				position: absolute;
+				background-color: $night;
+				color: $colorGreyscale_1;
+				inset: 0;
+				width: 100vw;
+				height: 100vh;
+				margin-top: 102px;
+				padding: 48px 24px;
+				flex-direction: column;
+			}
+		}
+	}
 }

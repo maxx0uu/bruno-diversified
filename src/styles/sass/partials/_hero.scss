@@ -10,6 +10,8 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		min-height: 800px;
+		max-height: 1000px;
 		.texts {
 			@include styleGrid("width", 7);
 			padding-top: 144px;
@@ -52,39 +54,52 @@
 				}
 			}
 		}
-		// .carousels {
-		// 	width: 416px;
-		// 	display: flex;
-		// 	flex-direction: row-reverse;
-		// 	gap: 16px;
-		// 	.carousel-wrapper {
-		// 		position: relative;
-		// 		overflow: hidden;
-		// 		.carousel {
-		// 			position: relative;
-		// 			width: 200px;
-		// 			img {
-		// 				position: absolute;
-		// 				width: 200px;
-		// 				height: auto;
-		// 			}
-		// 		}
-		// 		.carousel-0 {
-		// 			top: -316px;
-		// 		}
-		// 		.carousel-1 {
-		// 			top: -366px;
-		// 		}
-		// 	}
-		// }
 		.carousels {
-			display: flex;
-			gap: 16px;
-			display: none;
+			width: 416px;
+			position: relative;
+			overflow: hidden;
 			.carousel {
 				display: flex;
 				flex-direction: column;
 				gap: 16px;
+				height: 100%;
+				position: absolute;
+			}
+			.carousel-0 {
+				left: 0;
+			}
+			.carousel-1 {
+				left: 216px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 1200px) {
+	#section-hero {
+		.wrapper-hero {
+			flex-direction: column;
+			max-height: none;
+			.texts {
+				width: 100%;
+			}
+			.carousels {
+				width: 100%;
+				height: 376px;
+				.carousel {
+					flex-direction: row;
+					height: 180px;
+					img {
+						height: 180px;
+						width: auto;
+					}
+				}
+				.carousel-0 {
+					top: 0;
+				}
+				.carousel-1 {
+					left: 0;
+					top: 196px;
+				}
 			}
 		}
 	}
@@ -110,18 +125,18 @@
 					display: none;
 				}
 				.checkpoints {
-					overflow: hidden;
+					overflow: scroll;
 					.cp {
 						@include styleGrid("width", 2.5);
 					}
 				}
 			}
-			.carousels {
-				flex-direction: column;
-				.carousel {
-					flex-direction: row;
-				}
-			}
+			// .carousels {
+			// 	flex-direction: column;
+			// 	.carousel {
+			// 		flex-direction: row;
+			// 	}
+			// }
 		}
 	}
 }

@@ -1,5 +1,4 @@
 #section-features {
-	display: none;
 	background-color: $colorGreyscale_1;
 	padding: 160px 0;
 	.wrapper-features {
@@ -67,7 +66,7 @@
 		}
 	}
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
 	#section-features {
 		padding: 72px 0;
 		.wrapper-features {
@@ -81,14 +80,14 @@
 					flex-direction: column;
 					gap: 40px;
 					.gallery {
+						width: 100%;
 						gap: 12px;
 						img {
-							width: 160px;
+							width: 100%;
 							height: auto;
 						}
 						.col-1 {
 							gap: 12px;
-							width: 50%;
 						}
 					}
 					.texts {

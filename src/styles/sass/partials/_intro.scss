@@ -1,10 +1,10 @@
 #section-intro {
-	display: none;
 	padding: 160px 0;
 	.wrapper-intro {
 		@include styleGrid("width", 10);
 		display: flex;
 		justify-content: space-between;
+		gap: 48px;
 		.image {
 			@include styleGrid("width", 4.5);
 			img {
@@ -28,11 +28,17 @@
 		}
 	}
 }
+@media screen and (max-width: 1200px) {
+	#section-intro {
+		.wrapper-intro {
+			@include styleGrid("wrapper");
+		}
+	}
+}
 @media screen and (max-width: 768px) {
 	#section-intro {
 		padding: 72px 0;
 		.wrapper-intro {
-			@include styleGrid("wrapper");
 			display: flex;
 			flex-direction: column;
 			gap: 56px;
