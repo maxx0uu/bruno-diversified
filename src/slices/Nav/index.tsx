@@ -26,6 +26,7 @@ const Nav = ({ slice }: NavProps): JSX.Element => {
   const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    window.addEventListener("load", () => setWindowWidth(window.innerWidth));
   }, [windowWidth]);
 
   // Manage responsive nav
@@ -74,7 +75,7 @@ const Nav = ({ slice }: NavProps): JSX.Element => {
         </div>
         <ul className="nav-list">
           {slice.items.map((item, key) => (
-            <li className={"nav-link-" + key}>
+            <li className={"nav-link-" + key} key={key}>
               <PrismicNextLink
                 key={key}
                 field={item.nav_url}

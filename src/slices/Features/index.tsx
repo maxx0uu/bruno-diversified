@@ -1,14 +1,18 @@
-// Content
+// Prismic content
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 
-// Components
+// Prismic components
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import { CtaDocument } from "../../../prismicio-types";
 
 export type FeaturesProps = SliceComponentProps<Content.FeaturesSlice>;
 
 const Features = ({ slice, context }: FeaturesProps): JSX.Element => {
+  const { ctas } = context as {
+    ctas: ReadonlyArray<CtaDocument<string>>;
+  };
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -36,13 +40,13 @@ const Features = ({ slice, context }: FeaturesProps): JSX.Element => {
                 <div className="body">
                   <PrismicRichText field={feature.body} />
                 </div>
-                {context.ctas.map((cta: CtaDocument) => {
+                {ctas.map((cta) => {
                   if (cta.uid == "cta-black-bg")
                     return (
                       <PrismicNextLink
                         className="cta-black-bg"
                         key={cta.uid}
-                        field={cta}
+                        field={cta.data.url}
                       >
                         {cta.data.text}
                       </PrismicNextLink>

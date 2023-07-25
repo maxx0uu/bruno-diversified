@@ -59,17 +59,19 @@
 			position: relative;
 			overflow: hidden;
 			.carousel {
-				display: flex;
-				flex-direction: column;
-				gap: 16px;
-				height: 100%;
 				position: absolute;
+				width: 200px;
+				img {
+					position: absolute;
+				}
 			}
 			.carousel-0 {
-				left: 0;
+				transform: translateY(-350px);
+				left: 216px;
 			}
 			.carousel-1 {
-				left: 216px;
+				transform: translateY(-1050px);
+				left: 0;
 			}
 		}
 	}
@@ -94,11 +96,14 @@
 					}
 				}
 				.carousel-0 {
+					transform: translateY(0);
+					left: -186px;
 					top: 0;
 				}
 				.carousel-1 {
-					left: 0;
+					transform: translateY(0);
 					top: 196px;
+					left: -236px;
 				}
 			}
 		}

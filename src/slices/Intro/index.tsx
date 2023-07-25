@@ -1,8 +1,8 @@
-// Content
+// Prismic content
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 
-// Components
+// Prismic components
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
@@ -12,6 +12,9 @@ import { CtaDocument } from "../../../prismicio-types";
 export type IntroProps = SliceComponentProps<Content.IntroSlice>;
 
 const Intro = ({ slice, context }: IntroProps): JSX.Element => {
+  const { ctas } = context as {
+    ctas: ReadonlyArray<CtaDocument<string>>;
+  };
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -19,14 +22,14 @@ const Intro = ({ slice, context }: IntroProps): JSX.Element => {
       id="section-intro"
     >
       <div className="wrapper wrapper-intro">
-        <div className="image">
-          <PrismicNextImage field={slice.primary.image} />
+        <div className="container-image-intro">
+          <PrismicNextImage field={slice.primary.image} priority />
         </div>
         <div className="texts">
           <PrismicRichText field={slice.primary.title} />
           <PrismicRichText field={slice.primary.body} />
           <div className="ctas">
-            {context.ctas.map((cta: CtaDocument) => {
+            {ctas.map((cta) => {
               if (cta.uid == "cta-primary")
                 return (
                   <PrismicNextLink
@@ -38,7 +41,7 @@ const Intro = ({ slice, context }: IntroProps): JSX.Element => {
                   </PrismicNextLink>
                 );
             })}
-            {context.ctas.map((cta: CtaDocument) => {
+            {ctas.map((cta) => {
               if (cta.uid == "cta-white-bg")
                 return (
                   <PrismicNextLink

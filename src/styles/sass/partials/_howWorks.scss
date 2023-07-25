@@ -53,8 +53,6 @@
 				justify-content: center;
 				.mockup {
 					transform: translateY(4px);
-					display: flex;
-					justify-content: center;
 					img {
 						width: auto;
 					}
@@ -65,6 +63,9 @@
 					left: 50%;
 					transform: translateX(-50%);
 					width: auto;
+					img {
+						width: auto;
+					}
 				}
 			}
 		}

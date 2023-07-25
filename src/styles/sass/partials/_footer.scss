@@ -13,9 +13,16 @@
 			.footer-sitemap-item {
 				@include styleGrid("width", 2);
 				.sitemap-item-title {
+					display: flex;
+					justify-content: space-between;
+					cursor: default;
 					h6 {
 						padding-bottom: 20px;
 						font-size: 20px;
+					}
+					.footer-tab-icon {
+						display: none;
+						align-items: center;
 					}
 				}
 				.sitemap-list {
@@ -59,7 +66,7 @@
 			.container-cb {
 				display: flex;
 				gap: 8px;
-				align-items: start;
+				align-items: flex-start;
 				@include styleP("tiny");
 				input {
 					transform: translateY(2px);
@@ -132,7 +139,9 @@
 				flex-direction: column;
 				.footer-sitemap-item {
 					width: 100%;
+					border-bottom: solid 1px $colorGreyscale_4;
 					.sitemap-item-title {
+						cursor: pointer;
 						h6 {
 							padding: 20px 0;
 							font-size: 16px;

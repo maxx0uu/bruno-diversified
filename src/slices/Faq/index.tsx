@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 
 // Various
 import gsap from "gsap";
+import { CtaDocument } from "../../../prismicio-types";
 
 export type FaqProps = SliceComponentProps<Content.FaqSlice>;
 
@@ -20,6 +21,10 @@ export type FaqProps = SliceComponentProps<Content.FaqSlice>;
 // Utiliser le même principe pour l'update des statuts
 
 const Faq = ({ slice, context }: FaqProps): JSX.Element => {
+  const { ctas } = context as {
+    ctas: ReadonlyArray<CtaDocument<string>>;
+  };
+
   const [questionState, setQuestionState] = useState([
     true,
     false,
@@ -34,7 +39,6 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
   };
 
   useEffect(() => {
-    console.log(questionState);
     questionState.map((question, key) => {
       if (question == true) {
         gsap.to(`.question-body-${key}`, { height: "auto" });
@@ -64,25 +68,25 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
         <div className="title">
           <PrismicRichText field={slice.primary.title} />
           <div className="ctas">
-            {context.ctas.map((cta: CtaDocument) => {
+            {ctas.map((cta, key: number) => {
               if (cta.uid == "cta-primary")
                 return (
                   <PrismicNextLink
                     className="cta-primary"
-                    key={cta.uid}
-                    field={cta}
+                    key={key}
+                    field={cta.data.url}
                   >
                     {cta.data.text}
                   </PrismicNextLink>
                 );
             })}
-            {context.ctas.map((cta: CtaDocument) => {
+            {ctas.map((cta, key: number) => {
               if (cta.uid == "cta-white-bg")
                 return (
                   <PrismicNextLink
                     className="cta-black-bg"
-                    key={cta.uid}
-                    field={cta}
+                    key={key}
+                    field={cta.data.url}
                   >
                     More questions
                   </PrismicNextLink>
@@ -109,8 +113,8 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M5.88867 6.55671e-07L10.8887 4.80077L9.63768 6L5.88867 2.40038L2.13967 5.99999L0.888672 4.80076L5.88867 6.55671e-07Z"
                         fill="white"
                       />

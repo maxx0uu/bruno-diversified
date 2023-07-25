@@ -33,7 +33,6 @@
 						width: 32px;
 						height: 32px;
 						border-radius: 50%;
-						// border: 1px solid $colorGreyscale_6 ;
 						display: flex;
 						justify-content: center;
 						align-items: center;
@@ -61,6 +60,7 @@
 			.title {
 				.ctas {
 					flex-direction: column;
+					margin-bottom: 16px;
 				}
 			}
 			.questions {

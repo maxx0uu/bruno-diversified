@@ -57,6 +57,8 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
         document.getElementById("royal-oak")?.classList.add("active");
         document.getElementById("tache")?.classList.remove("active");
         document.getElementById("tache")?.classList.add("bbl");
+        gsap.to(".tab-thumbnail-first", { x: -180, rotate: -4 });
+        gsap.to(".tab-thumbnail-second", { translateX: 0, rotate: 4 });
       }
       if (tabState[0] == false && tabState[1] == true) {
         gsap.to(".tabs-container", {
@@ -66,10 +68,61 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
         document.getElementById("tache")?.classList.remove("bbl");
         document.getElementById("tache")?.classList.add("active");
         document.getElementById("royal-oak")?.classList.add("bbr");
+        gsap.to(".tab-thumbnail-second", { translateX: -180, rotate: -4 });
+        gsap.to(".tab-thumbnail-first", { x: 0, rotate: 4 });
       }
     };
     displayTab();
   }, [tabState, setTabState]);
+
+  // Get window width on each resize
+  const [windowWidth, setWindowWidth] = useState(0);
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    window.addEventListener("load", () => setWindowWidth(window.innerWidth));
+  }, [windowWidth]);
+
+  const testimonialsLength = slice.items.length * 328;
+  const tl = gsap.timeline();
+
+  useEffect(() => {
+    gsap.set(".testimonial", {
+      x: (i) => i * 328 - 328,
+    });
+
+    tl.to(".testimonial", {
+      duration: 10,
+      ease: "none",
+      x: "+=" + testimonialsLength,
+      modifiers: {
+        x: gsap.utils.unitize(
+          (x) => (parseFloat(x) % testimonialsLength) - 328
+        ),
+      },
+      repeat: -1,
+    });
+    tl.pause();
+  }, []);
+  const prevSlide = () => {
+    tl.to(".testimonial", {
+      x: "-=328",
+      modifiers: {
+        x: gsap.utils.unitize((x) => parseFloat(x) % -328),
+      },
+    });
+  };
+  const nextSlide = () => {
+    tl.to(".testimonial", {
+      x: "+=328",
+      modifiers: {
+        x: gsap.utils.unitize(
+          (x) => (parseFloat(x) % testimonialsLength) - 328
+        ),
+      },
+    });
+  };
+
+  useEffect(() => {}, []);
 
   return (
     <section
@@ -103,6 +156,16 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
               >
                 {tabName[1]}
               </p>
+              <div className="wrapper-tab-thumbnail">
+                <PrismicNextImage
+                  field={slice.primary.first_item_image}
+                  className="tab-thumbnail-first"
+                />
+                <PrismicNextImage
+                  field={slice.primary.second_item_image}
+                  className="tab-thumbnail-second"
+                />
+              </div>
             </div>
             <div className="tabs-wrapper">
               <div className="tabs-container">
@@ -111,14 +174,12 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
                   <div className="author">
                     <PrismicRichText field={slice.primary.first_item_author} />
                   </div>
-                  <PrismicNextImage field={slice.primary.first_item_image} />
                 </div>
                 <div className="tache-2000">
                   <h4>{slice.primary.second_item_name}</h4>
                   <div className="author">
                     <PrismicRichText field={slice.primary.second_item_author} />
                   </div>
-                  <PrismicNextImage field={slice.primary.second_item_image} />
                 </div>
               </div>
             </div>
@@ -146,44 +207,46 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="wrapper-testimonials">
         <div className="testimonials">
           <PrismicRichText field={slice.primary.testimonials_title} />
-          <Swiper
-            spaceBetween={8}
-            slidesPerView={3.5}
-            modules={[Navigation]}
-            loop={true}
-            navigation={true}
-          >
+          <div className="container-testimonials">
+            <div
+              className="slider-btn slider-prev"
+              onClick={() => prevSlide()}
+            ></div>
+            <div
+              className="slider-btn slider-next"
+              onClick={() => nextSlide()}
+            ></div>
             {slice.items.map((testi, key: number) => {
               return (
-                <SwiperSlide>
-                  <div className="testimonial" key={key}>
-                    <div className="title">
-                      <PrismicRichText field={testi.title} />
+                <div className={"testimonial textimonial-" + key} key={key}>
+                  <div className="title">
+                    <PrismicRichText field={testi.title} />
+                  </div>
+                  <div className="note">
+                    {testi.note && "⭐️ ".repeat(parseInt(testi.note))}
+                  </div>
+                  <div className="body">
+                    <PrismicRichText field={testi.body} />
+                  </div>
+                  <div className="author">
+                    <div className="image">
+                      <PrismicNextImage field={testi.picture} />
                     </div>
-                    <div className="note">
-                      {testi.note && "⭐️".repeat(parseInt(testi.note))}
+                    <div className="name">
+                      <PrismicRichText field={testi.name} />
                     </div>
-                    <div className="body">
-                      <PrismicRichText field={testi.body} />
-                    </div>
-                    <div className="author">
-                      <div className="image">
-                        <PrismicNextImage field={testi.picture} />
-                      </div>
-                      <div className="name">
-                        <PrismicRichText field={testi.name} />
-                      </div>
-                      <div className="job">
-                        <PrismicRichText field={testi.job} />
-                      </div>
+                    <div className="job">
+                      <PrismicRichText field={testi.job} />
                     </div>
                   </div>
-                </SwiperSlide>
+                </div>
               );
             })}
-          </Swiper>
+          </div>
         </div>
       </div>
     </section>
