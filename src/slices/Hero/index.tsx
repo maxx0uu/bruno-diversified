@@ -18,11 +18,11 @@ import { GalleryCarouselDocument } from "../../../prismicio-types";
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 const Hero = ({ slice, context }: HeroProps): JSX.Element => {
-  // Get window width on each resize
-  const [windowWidth, setWindowWidth] = useState(0);
   const { carousel } = context as {
     carousel: ReadonlyArray<GalleryCarouselDocument<string>>;
   };
+  // Get window width on each resize
+  const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     window.addEventListener("load", () => setWindowWidth(window.innerWidth));
@@ -94,12 +94,14 @@ const Hero = ({ slice, context }: HeroProps): JSX.Element => {
         x: 0,
         y: 1912,
       });
+
       gsap.to(".carousel-img", {
-        duration: 10,
+        duration: 2,
         ease: "none",
         x: 0,
         y: "+=2228",
         modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % 0),
           y: gsap.utils.unitize((y) => parseFloat(y) % 2228),
         },
         repeat: -1,
@@ -170,18 +172,20 @@ const Hero = ({ slice, context }: HeroProps): JSX.Element => {
         x: 1132,
         y: 0,
       });
+
+      gsap.to(".carousel-img", {
+        duration: 10,
+        ease: "none",
+        x: "+=1268",
+        y: 0,
+        modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % 1268),
+          y: gsap.utils.unitize((y) => parseFloat(y) % 0),
+        },
+        repeat: -1,
+      });
     }
-    gsap.to(".carousel-img", {
-      duration: 10,
-      ease: "none",
-      x: "+=1268",
-      y: 0,
-      modifiers: {
-        x: gsap.utils.unitize((y) => parseFloat(y) % 1268),
-      },
-      repeat: -1,
-    });
-  }, []);
+  }, [windowWidth]);
 
   return (
     <section

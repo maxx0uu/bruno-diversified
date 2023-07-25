@@ -506,6 +506,9 @@ p {
   position: relative;
   overflow: hidden;
 }
+#section-hero .wrapper-hero .carousels .carousel-wrapper {
+  height: 100%;
+}
 #section-hero .wrapper-hero .carousels .carousel {
   position: absolute;
   width: 200px;

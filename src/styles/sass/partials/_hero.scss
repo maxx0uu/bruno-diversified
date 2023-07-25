@@ -58,6 +58,9 @@
 			width: 416px;
 			position: relative;
 			overflow: hidden;
+			.carousel-wrapper {
+				height: 100%;
+			}
 			.carousel {
 				position: absolute;
 				width: 200px;
