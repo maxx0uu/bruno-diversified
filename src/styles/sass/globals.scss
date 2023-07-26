@@ -1,14 +1,15 @@
 /* ------------------------------------------------- */
 /* ******************* PARTIALS ******************** */
 /* ------------------------------------------------- */
+@import "./variables/colors.scss";
+@import "./variables/font-family.scss";
 
 @import "./common/reset";
-@import "./common/colors";
-@import "./common/font-family";
-@import "./common/texts";
-@import "./common/grid-responsive";
-@import "./common/breakpoints";
-@import "./common/mixins";
+
+@import "./common/texts.scss";
+@import "./common/grid-responsive.scss";
+@import "./common/breakpoints.scss";
+@import "./common/mixins.scss";
 
 /* ------------------------------------------------- */
 /* ****************** COMPONENTS ******************* */

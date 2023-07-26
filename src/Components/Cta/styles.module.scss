@@ -1,0 +1,39 @@
+@import '@/styles/sass/variables/colors.scss';
+@import '@/styles/sass/variables/font-family.scss';
+
+.cta {
+  font-family: $font_2_bold;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 20px;
+  transition: all .25s ease-in-out;
+  &primary {
+    color: $colorGreyscale_6;
+    background-color: $night;
+    &:hover {
+      background-color: $night-hover;
+    }
+  }
+  &blackbg {
+    color: $colorGreyscale_6;
+    background-color: $colorGreyscale_1;
+    border: 1.5px solid $colorGreyscale_6;
+    &:hover {
+      color: $colorGreyscale_1;
+      background-color: $colorGreyscale_6;
+    }
+  }
+  &whitebg {
+    color: $colorGreyscale_1;
+    background-color: $colorGreyscale_6;
+    border: 1.5px solid $colorGreyscale_1;
+    &:hover {
+      color: $colorGreyscale_6;
+      background-color: $colorGreyscale_1;
+    }
+  }
+}

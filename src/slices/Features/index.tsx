@@ -5,56 +5,63 @@ import { Content } from "@prismicio/client";
 // Prismic components
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import { CtaManager } from "@/Components/Cta";
+
+// Types
 import { CtaDocument } from "../../../prismicio-types";
+
+// Import styles
+import styles from "./styles.module.scss";
 
 export type FeaturesProps = SliceComponentProps<Content.FeaturesSlice>;
 
 const Features = ({ slice, context }: FeaturesProps): JSX.Element => {
+  // Call nested components
   const { ctas } = context as {
     ctas: ReadonlyArray<CtaDocument<string>>;
   };
+
+  const featureCta = ctas.find((cta) => cta.uid === "cta-black-bg");
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      id="section-features"
+      id={styles.section_features}
     >
-      <div className="wrapper wrapper-features">
+      <div className={`${styles.wrapper_features} wrapper`}>
         <PrismicRichText field={slice.primary.title} />
-        <div className="features">
-          {slice.items.map((feature, key) => (
-            <div className="feature" key={key}>
-              <div className="gallery">
-                <div className="col-1">
-                  <PrismicNextImage field={feature.image_1} />
-                  <PrismicNextImage field={feature.image_2} />
+        <div className={styles.features}>
+          {slice.items.map((feature, key) => {
+            return (
+              <div className={styles.feature} key={key}>
+                <div className={styles.gallery}>
+                  <div className={styles.col_1}>
+                    <PrismicNextImage field={feature.image_1} />
+                    <PrismicNextImage field={feature.image_2} />
+                  </div>
+                  <div className="col-2">
+                    <PrismicNextImage field={feature.image_3} />
+                  </div>
                 </div>
-                <div className="col-2">
-                  <PrismicNextImage field={feature.image_3} />
+                <div className={styles.texts}>
+                  <div className={styles.title}>
+                    <PrismicRichText field={feature.title} />
+                  </div>
+                  <div className={styles.body}>
+                    <PrismicRichText field={feature.body} />
+                  </div>
+                  {featureCta && (
+                    <CtaManager
+                      variant={featureCta.uid}
+                      url={featureCta.data.url}
+                      body={featureCta.data.text}
+                    />
+                  )}
                 </div>
               </div>
-              <div className="texts">
-                <div className="title">
-                  <PrismicRichText field={feature.title} />
-                </div>
-                <div className="body">
-                  <PrismicRichText field={feature.body} />
-                </div>
-                {ctas.map((cta) => {
-                  if (cta.uid == "cta-black-bg")
-                    return (
-                      <PrismicNextLink
-                        className="cta-black-bg"
-                        key={cta.uid}
-                        field={cta.data.url}
-                      >
-                        {cta.data.text}
-                      </PrismicNextLink>
-                    );
-                })}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,115 +1,115 @@
-#section-features {
-	background-color: $colorGreyscale_1;
-	padding: 160px 0;
-	.wrapper-features {
-		@include styleGrid("width", 10);
-		h2,
-		p,
-		li {
-			color: $colorGreyscale_6;
-		}
-		h2 {
-			text-align: center;
-			margin-bottom: 80px;
-		}
-		.features {
-			display: flex;
-			flex-direction: column;
-			gap: 120px;
-			.feature {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				.gallery {
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
-					width: 416px;
-					max-width: 100%;
-					gap: 16px;
-					.col-1 {
-						display: flex;
-						flex-direction: column;
-						gap: 16px;
-						order: -1;
-					}
-					img {
-						width: 100%;
-						height: auto;
-					}
-				}
-				.texts {
-					@include styleGrid("width", 4.125);
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					.title {
-						margin-bottom: 24px;
-						h4 {
-							color: $colorGreyscale_6;
-						}
-					}
-					.body {
-						margin-bottom: 40px;
-						p {
-							opacity: 0.7;
-						}
-						li {
-							@include styleP("medium", $colorGreyscale_6);
-							opacity: .7;
-							margin-bottom: 16px;
-							margin-left: 24px;
-							&:last-of-type {
-								margin-bottom: 0;
-							}
-						}
-					}
-				}
-				&:nth-of-type(even) {
-					flex-direction: row-reverse;
-					.gallery {
-						direction: rtl;
-					}
-				}
-			}
-		}
-	}
-}
-@media screen and (max-width: 1024px) {
-	#section-features {
-		padding: 72px 0;
-		.wrapper-features {
-			@include styleGrid("wrapper");
-			h2 {
-				margin-bottom: 40px;
-			}
-			.features {
-				flex-direction: column;
-				.feature {
-					flex-direction: column;
-					gap: 40px;
-					.gallery {
+// #section-features {
+// 	background-color: $colorGreyscale_1;
+// 	padding: 160px 0;
+// 	.wrapper-features {
+// 		@include styleGrid("width", 10);
+// 		h2,
+// 		p,
+// 		li {
+// 			color: $colorGreyscale_6;
+// 		}
+// 		h2 {
+// 			text-align: center;
+// 			margin-bottom: 80px;
+// 		}
+// 		.features {
+// 			display: flex;
+// 			flex-direction: column;
+// 			gap: 120px;
+// 			.feature {
+// 				display: flex;
+// 				flex-direction: row;
+// 				justify-content: space-between;
+// 				.gallery {
+// 					display: grid;
+// 					grid-template-columns: repeat(2, 1fr);
+// 					width: 416px;
+// 					max-width: 100%;
+// 					gap: 16px;
+// 					.col-1 {
+// 						display: flex;
+// 						flex-direction: column;
+// 						gap: 16px;
+// 						order: -1;
+// 					}
+// 					img {
+// 						width: 100%;
+// 						height: auto;
+// 					}
+// 				}
+// 				.texts {
+// 					@include styleGrid("width", 4.125);
+// 					display: flex;
+// 					flex-direction: column;
+// 					align-items: flex-start;
+// 					.title {
+// 						margin-bottom: 24px;
+// 						h4 {
+// 							color: $colorGreyscale_6;
+// 						}
+// 					}
+// 					.body {
+// 						margin-bottom: 40px;
+// 						p {
+// 							opacity: 0.7;
+// 						}
+// 						li {
+// 							@include styleP("medium", $colorGreyscale_6);
+// 							opacity: .7;
+// 							margin-bottom: 16px;
+// 							margin-left: 24px;
+// 							&:last-of-type {
+// 								margin-bottom: 0;
+// 							}
+// 						}
+// 					}
+// 				}
+// 				&:nth-of-type(even) {
+// 					flex-direction: row-reverse;
+// 					.gallery {
+// 						direction: rtl;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @media screen and (max-width: 1024px) {
+// 	#section-features {
+// 		padding: 72px 0;
+// 		.wrapper-features {
+// 			@include styleGrid("wrapper");
+// 			h2 {
+// 				margin-bottom: 40px;
+// 			}
+// 			.features {
+// 				flex-direction: column;
+// 				.feature {
+// 					flex-direction: column;
+// 					gap: 40px;
+// 					.gallery {
 						
-						gap: 12px;
-						.col-1 {
-							gap: 12px;
-						}
-					}
-					.texts {
-						align-items: stretch;
-						width: 100%;
-						.title {
-							margin-bottom: 8px;
-						}
-						li {
-							margin-bottom: 8px;
-						}
-					}
-					&:nth-of-type(even) {
-						flex-direction: column;
-						align-items: end;
-					}
-				}
-			}
-		}
-	}
-}
+// 						gap: 12px;
+// 						.col-1 {
+// 							gap: 12px;
+// 						}
+// 					}
+// 					.texts {
+// 						align-items: stretch;
+// 						width: 100%;
+// 						.title {
+// 							margin-bottom: 8px;
+// 						}
+// 						li {
+// 							margin-bottom: 8px;
+// 						}
+// 					}
+// 					&:nth-of-type(even) {
+// 						flex-direction: column;
+// 						align-items: end;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }

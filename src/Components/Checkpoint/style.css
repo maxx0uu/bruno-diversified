@@ -1,0 +1,18 @@
+.cp {
+  display: flex;
+  gap: 8px;
+  font-size: 18px;
+}
+.cp p {
+  font-family: font_2_regular;
+}
+.cp p strong {
+  font-family: font_2_bold;
+}
+.cp img {
+  transform: translateY(4px);
+  width: 24px;
+  height: 24px;
+}
+
+/*# sourceMappingURL=style.css.map */

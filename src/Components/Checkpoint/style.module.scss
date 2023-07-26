@@ -1,0 +1,20 @@
+@import '@/styles/sass/variables/colors.scss';
+@import '@/styles/sass/variables/font-family.scss';
+
+.cp {
+  display: flex;
+  gap: 8px;
+  font-size: 18px;
+  p {
+    font-family: $font_2_regular;
+    strong {
+      font-family: $font_2_bold;
+    }
+  }
+  img {
+    transform: translateY(4px);
+    width: 24px;
+    height: 24px;
+  }
+}
+

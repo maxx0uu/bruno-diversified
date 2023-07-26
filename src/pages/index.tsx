@@ -6,9 +6,11 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices/";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import gsap from "gsap";
+import { Context, createContext } from "vm";
+import { sliceZone } from "@prismicio/client/dist/helpers/isFilled";
 
 // Sitemap datas
 const sitemap = [
@@ -39,6 +41,9 @@ export default function Index({ home, ctas, carousel }: HomeProps) {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     window.addEventListener("load", () => setWindowWidth(window.innerWidth));
   }, [windowWidth]);
+
+  // Store windowWidth in React context
+  // const windowWidthContext: Context = createContext(windowWidth);
 
   // Manage responsive nav
   useEffect(() => {

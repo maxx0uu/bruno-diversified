@@ -1,43 +1,49 @@
-// Content
+// Prismic content
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 
-// Components
+// Prismic components
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { useEffect, useState } from "react";
+import { CtaManager } from "@/Components/Cta";
 
-// Various
-import gsap from "gsap";
+// Types
 import { CtaDocument } from "../../../prismicio-types";
+
+// External resources
+import gsap from "gsap";
+
+// Import styles
+import styles from "./styles.module.scss";
 
 export type FaqProps = SliceComponentProps<Content.FaqSlice>;
 
-// Améliorations possibles :
-// Créer un tableau de la longueur de "slice.items"
-// Donner à chaque cellule du tableau la valeur false
-// Donner la valeur true à la première cellule
-// Assigner ce tableau à un useState
-// Utiliser le même principe pour l'update des statuts
-
 const Faq = ({ slice, context }: FaqProps): JSX.Element => {
+  // Call nested components
   const { ctas } = context as {
     ctas: ReadonlyArray<CtaDocument<string>>;
   };
 
-  const [questionState, setQuestionState] = useState([
-    true,
-    false,
-    false,
-    false,
-  ]);
+  const primaryCta = ctas.find((cta) => cta.uid === "cta-primary");
+  const secondaryCta = ctas.find((cta) => cta.uid === "cta-black-bg");
 
+  // Create an array with the length of the FAQ items and fill it with false
+  // Set the first cell with true to open the first question by default
+  const faqArrayTemplate = Array(slice.items.length).fill(false);
+  faqArrayTemplate[0] = true;
+
+  // Create a state to manage the FAQ
+  const [questionState, setQuestionState] = useState(faqArrayTemplate);
+
+  // On click, update the FAQ with the key and the state
   const getQuestionState = (key: number) => {
-    const tempQuestions = [false, false, false, false];
+    const tempQuestions = faqArrayTemplate.fill(false);
     tempQuestions[key] = true;
     setQuestionState(tempQuestions);
   };
 
+  // Render the FAQ styles when the FAQ state change
   useEffect(() => {
     questionState.map((question, key) => {
       if (question == true) {
@@ -62,49 +68,41 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      id="section-faq"
+      id={styles.section_faq}
     >
-      <div className="wrapper wrapper-faq">
-        <div className="title">
+      <div className={`${styles.wrapper_faq} wrapper`}>
+        <div className={styles.title}>
           <PrismicRichText field={slice.primary.title} />
-          <div className="ctas">
-            {ctas.map((cta, key: number) => {
-              if (cta.uid == "cta-primary")
-                return (
-                  <PrismicNextLink
-                    className="cta-primary"
-                    key={key}
-                    field={cta.data.url}
-                  >
-                    {cta.data.text}
-                  </PrismicNextLink>
-                );
-            })}
-            {ctas.map((cta, key: number) => {
-              if (cta.uid == "cta-white-bg")
-                return (
-                  <PrismicNextLink
-                    className="cta-black-bg"
-                    key={key}
-                    field={cta.data.url}
-                  >
-                    More questions
-                  </PrismicNextLink>
-                );
-            })}
+          <div className={styles.ctas}>
+            {primaryCta && (
+              <CtaManager
+                variant={primaryCta.uid}
+                url={primaryCta.data.url}
+                body={primaryCta.data.text}
+              />
+            )}
+            {secondaryCta && (
+              <CtaManager
+                variant={secondaryCta.uid}
+                url={secondaryCta.data.url}
+                body={secondaryCta.data.text}
+              />
+            )}
           </div>
         </div>
-        <div className="questions">
+        <div className={styles.questions}>
           {slice.items.map((question, key: number) => {
             return (
               <div
-                className="question"
+                className={styles.question}
                 key={key}
                 onClick={() => getQuestionState(key)}
               >
-                <div className="question-title">
+                <div className={styles.question_title}>
                   <PrismicRichText field={question.title} />
-                  <div className={"question-tab-icon question-tab-icon-" + key}>
+                  <div
+                    className={`${styles.question_tab_icon} question-tab-icon-${key}`}
+                  >
                     <svg
                       width="11"
                       height="6"
@@ -121,7 +119,7 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
                     </svg>
                   </div>
                 </div>
-                <div className={"question-body question-body-" + key}>
+                <div className={`${styles.question_body} question-body-${key}`}>
                   <PrismicRichText field={question.body} />
                 </div>
               </div>
