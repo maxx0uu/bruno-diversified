@@ -5,14 +5,14 @@
 @import '@/styles/sass/common/grid-responsive.scss';
 @import '@/styles/sass/common/breakpoints.scss';
 
-#section_intro {
+.section_wrapper{
 	padding: 160px 0;
-	.wrapper_intro {
+	.wrapper {
 		@include styleGrid("width", 10);
 		display: flex;
 		justify-content: space-between;
 		gap: 48px;
-		.container_image_intro {
+		.container_image {
 			width: 416px;
 			img {
 				width: 100%;
@@ -36,21 +36,21 @@
 	}
 }
 @media screen and (max-width: 1200px) {
-	#section_intro {
-		.wrapper_intro {
+	.section_wrapper {
+		.wrapper {
 			@include styleGrid("wrapper");
 		}
 	}
 }
 @media screen and (max-width: 768px) {
-	#section_intro {
+	.section_wrapper {
 		padding: 72px 0;
-		.wrapper_intro {
+		.wrapper {
 			display: flex;
 			flex-direction: column;
 			gap: 56px;
 			justify-content: space-between;
-			.container_image_intro {
+			.container_image {
 				width: 100%;
 				max-width: 416px;
 				margin-left: auto;

@@ -1,0 +1,37 @@
+@import '@/styles/sass/variables/colors.scss';
+@import '@/styles/sass/variables/font-family.scss';
+@import '@/styles/sass/common/mixins.scss';
+@import '@/styles/sass/common/texts.scss';
+@import '@/styles/sass/common/grid-responsive.scss';
+@import '@/styles/sass/common/breakpoints.scss';
+
+.section_wrapper {
+	background-color: $colorGreyscale_1;
+	padding: 30px 0;
+	.container {
+		display: flex;
+		justify-content: space-between;
+		.logo {
+			img {
+				width: 140px;
+				height: 140px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 768px) {
+	.section_wrapper {
+		padding: 0;
+		.container {
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 14px;
+			.logo {
+				img {
+					width: 120px;
+					height: 120px;
+				}
+			}
+		}
+	}
+}

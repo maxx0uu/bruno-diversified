@@ -1,0 +1,203 @@
+@import '@/styles/sass/variables/colors.scss';
+@import '@/styles/sass/variables/font-family.scss';
+@import '@/styles/sass/common/mixins.scss';
+@import '@/styles/sass/common/texts.scss';
+@import '@/styles/sass/common/grid-responsive.scss';
+@import '@/styles/sass/common/breakpoints.scss';
+
+#section_footer {
+	padding: 72px 0 32px;
+	@include styleGrid("wrapper");
+	.container_footer_top {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 24px;
+		gap: 24px;
+		.footer_sitemap {
+			@include styleGrid("width", 8);
+			display: flex;
+			justify-content: space-between;
+			.footer_sitemap_item {
+				@include styleGrid("width", 2);
+				.sitemap_item_title {
+					display: flex;
+					justify-content: space-between;
+					cursor: default;
+					h6 {
+						padding-bottom: 20px;
+						font-size: 20px;
+					}
+					.footer_tab_icon {
+						display: none;
+						align-items: center;
+					}
+				}
+				.sitemap_list {
+					@include styleP("small");
+					display: flex;
+					flex-direction: column;
+					list-style: none;
+					gap: 16px;
+				}
+			}
+		}
+		.footer_newsletter {
+			@include styleGrid("width", 4);
+			h6 {
+				font-size: 20px;
+				padding-bottom: 20px;
+			}
+			.container_input_mail {
+				display: flex;
+				gap: 6px;
+				width: 100%;
+				padding-bottom: 18px;
+				.input_mail {
+					@include styleP("small");
+					border-radius: 50px;
+					border: none;
+					width: 100%;
+					background-color: $colorGreyscale_5;
+					padding: 12px 24px;
+				}
+				button {
+					@include styleP("small");
+					background-color: $night;
+					padding: 12px 24px;
+					color: $colorGreyscale_6;
+					font-weight: 700;
+					border-radius: 50px;
+					white-space: nowrap;
+				}
+			}
+			.container_cb {
+				display: flex;
+				gap: 8px;
+				align-items: flex-start;
+				@include styleP("tiny");
+				input {
+					transform: translateY(2px);
+				}
+			}
+		}
+	}
+	.container_footer_mid {
+		padding: 24px 0;
+		border-top: 1px solid $colorGreyscale_4;
+		border-bottom: 1px solid $colorGreyscale_4;
+		p {
+			@include styleP("tiny");
+		}
+	}
+	.container_footer_bot {
+		padding: 24px 0 0;
+		display: flex;
+		justify-content: space-between;
+		gap: 24px;
+		.container_logo {
+			@include styleGrid("width", 3);
+			@include styleP("tiny");
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+		.container_catchphrase {
+			@include styleGrid("width", 6);
+			@include styleP("small");
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+		.container_socials {
+			@include styleGrid("width", 3);
+			display: flex;
+			gap: 16px;
+			align-items: center;
+			.container_socials_icons {
+				display: flex;
+				gap: 12px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 1200px) {
+	#section_footer {
+		.container_footer_top {
+			flex-wrap: wrap;
+			.footer_sitemap {
+				@include styleGrid("wrapper");
+			}
+			.footer_newsletter {
+				@include styleGrid("wrapper");
+			}
+			.footer_top_item_last {
+				width: 100%;
+			}
+		}
+	}
+}
+@media screen and (max-width: 768px) {
+	#section_footer {
+		@include styleGrid("wrapper");
+		.container_footer_top {
+			flex-direction: column;
+			.footer_sitemap {
+				flex-direction: column;
+				.footer_sitemap_item {
+					width: 100%;
+					border-bottom: solid 1px $colorGreyscale_4;
+					.sitemap_item_title {
+						cursor: pointer;
+						h6 {
+							padding: 20px 0;
+							font-size: 16px;
+						}
+					}
+					.sitemap_list {
+						overflow: hidden;
+					}
+				}
+			}
+			.footer_top_item_last {
+				width: 100%;
+				h6 {
+					font-size: 16px;
+					padding-bottom: 20px;
+				}
+				.container_input_mail {
+					flex-direction: column;
+					gap: 6px;
+					.input_mail {
+					}
+					button {
+					}
+				}
+				.container_cb {
+					input {
+					}
+				}
+			}
+		}
+		.container_footer_bot {
+			padding: 24px 0;
+			flex-direction: column;
+			gap: 24px;
+			.container_logo {
+				@include styleGrid("wrapper");
+				gap: 24px;
+				align-items: center;
+			}
+			.container_catchphrase {
+				@include styleGrid("wrapper");
+			}
+			.container_socials {
+				@include styleGrid("wrapper");
+				justify-content: center;
+				.container_socials_icons {
+					gap: 8px;
+				}
+			}
+		}
+	}
+}

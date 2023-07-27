@@ -1,8 +1,8 @@
-// Content
+// Prismic content
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 
-// Components
+// Prismic c omponents
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
@@ -15,6 +15,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+
+// Import styles
+import styles from "./styles.module.scss";
 
 export type SimulationProps = SliceComponentProps<Content.SimulationSlice>;
 
@@ -128,18 +131,18 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      id="section-simulation"
+      id={styles.section_simulation}
     >
-      <div className="wrapper wrapper-simulation">
-        <div className="title">
+      <div className={`${styles.wrapper_simulation} wrapper`}>
+        <div className={styles.title}>
           <PrismicRichText field={slice.primary.title} />
           <PrismicRichText field={slice.primary.subtitle} />
         </div>
-        <div className="interactive-panels">
-          <div className="items">
-            <div className="tab-selector">
+        <div className={styles.interactive_panels}>
+          <div className={styles.items}>
+            <div className={styles.tab_selector}>
               <p
-                className="tab-name active"
+                className={`${styles.tab_name} ${styles.active}`}
                 id="royal-oak"
                 onClick={() => {
                   setTabState([true, false]);
@@ -148,7 +151,7 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
                 {tabName[0]}
               </p>
               <p
-                className="tab-name"
+                className={styles.tab_name}
                 id="tache"
                 onClick={() => {
                   setTabState([false, true]);
@@ -156,51 +159,51 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
               >
                 {tabName[1]}
               </p>
-              <div className="wrapper-tab-thumbnail">
+              <div className={styles.wrapper_tab_thumbnail}>
                 <PrismicNextImage
                   field={slice.primary.first_item_image}
-                  className="tab-thumbnail-first"
+                  className={styles.tab_thumbnail_first}
                 />
                 <PrismicNextImage
                   field={slice.primary.second_item_image}
-                  className="tab-thumbnail-second"
+                  className={styles.tab_thumbnail_second}
                 />
               </div>
             </div>
-            <div className="tabs-wrapper">
-              <div className="tabs-container">
-                <div className="royal-oak">
+            <div className={styles.tabs_wrapper}>
+              <div className={styles.tabs_container}>
+                <div className={styles.royal_oak}>
                   <h4>{slice.primary.first_item_name}</h4>
-                  <div className="author">
+                  <div className={styles.author}>
                     <PrismicRichText field={slice.primary.first_item_author} />
                   </div>
                 </div>
-                <div className="tache-2000">
+                <div className={styles.tache_2000}>
                   <h4>{slice.primary.second_item_name}</h4>
-                  <div className="author">
+                  <div className={styles.author}>
                     <PrismicRichText field={slice.primary.second_item_author} />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="simulator">
-            <div className="datas">
+          <div className={styles.simulator}>
+            <div className={styles.datas}>
               <h5>Make your simulation :</h5>
-              <label className="input">
+              <label className={styles.input}>
                 Your propriety
                 <input placeholder="1000€" />
               </label>
               <label>Term</label>
-              <div className="buttons">
+              <div className={styles.buttons}>
                 <button>3 years</button>
                 <button>5 years</button>
               </div>
             </div>
-            <div className="results">
+            <div className={styles.results}>
               <h5>Result of what you'd have:</h5>
-              <p className="total">0€</p>
-              <p className="disclaimer">
+              <p className={styles.total}>0€</p>
+              <p className={styles.disclaimer}>
                 259% the net profit if you had kept it for 5 years. Based on
                 actual data from Cresus Group.
               </p>
@@ -208,38 +211,38 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="wrapper-testimonials">
-        <div className="testimonials">
+      <div className={styles.wrapper_testimonials}>
+        <div className={styles.testimonials}>
           <PrismicRichText field={slice.primary.testimonials_title} />
-          <div className="container-testimonials">
+          <div className={styles.container_testimonials}>
             <div
-              className="slider-btn slider-prev"
+              className={`${styles.slider_btn} ${styles.prev}`}
               onClick={() => prevSlide()}
             ></div>
             <div
-              className="slider-btn slider-next"
+              className={`${styles.slider_btn} ${styles.slider_next}`}
               onClick={() => nextSlide()}
             ></div>
             {slice.items.map((testi, key: number) => {
               return (
-                <div className={"testimonial textimonial-" + key} key={key}>
-                  <div className="title">
+                <div className={`${styles.testimonial}`} key={key}>
+                  <div className={styles.title}>
                     <PrismicRichText field={testi.title} />
                   </div>
-                  <div className="note">
+                  <div className={styles.note}>
                     {testi.note && "⭐️ ".repeat(parseInt(testi.note))}
                   </div>
-                  <div className="body">
+                  <div className={styles.body}>
                     <PrismicRichText field={testi.body} />
                   </div>
-                  <div className="author">
-                    <div className="image">
+                  <div className={styles.author}>
+                    <div className={styles.image}>
                       <PrismicNextImage field={testi.picture} />
                     </div>
-                    <div className="name">
+                    <div className={styles.name}>
                       <PrismicRichText field={testi.name} />
                     </div>
-                    <div className="job">
+                    <div className={styles.job}>
                       <PrismicRichText field={testi.job} />
                     </div>
                   </div>

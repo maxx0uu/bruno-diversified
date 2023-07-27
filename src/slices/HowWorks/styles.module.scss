@@ -1,0 +1,135 @@
+@import '@/styles/sass/variables/colors.scss';
+@import '@/styles/sass/variables/font-family.scss';
+@import '@/styles/sass/common/mixins.scss';
+@import '@/styles/sass/common/texts.scss';
+@import '@/styles/sass/common/grid-responsive.scss';
+@import '@/styles/sass/common/breakpoints.scss';
+
+#section_how_works {
+	padding: 160px 0;
+	.wrapper_how_works {
+		.title {
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			margin-bottom: 72px;
+		}
+		.purple_container {
+			background-color: $purple;
+			border-radius: 24px;
+			padding: 80px 200px 0 100px;
+			display: flex;
+			justify-content: space-between;
+			.tabs {
+				display: flex;
+				flex-direction: column;
+				gap: 50px;
+				.tab {
+					display: flex;
+					gap: 40px;
+					align-items: center;
+					opacity: 0.2;
+					&.tab_active {
+						opacity: 1;
+					}
+					.index {
+						color: $colorGreyscale_6;
+						background-color: $colorGreyscale_1;
+						border-radius: 100%;
+						height: 64px;
+						width: 64px;
+						min-height: 64px;
+						min-width: 64px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+					.tab_content {
+						display: flex;
+						flex-direction: column;
+						gap: 2px;
+					}
+				}
+			}
+			.preview {
+				position: relative;
+				width: auto;
+				height: auto;
+				display: flex;
+				justify-content: center;
+				.mockup {
+					transform: translateY(4px);
+					img {
+						width: auto;
+					}
+				}
+				.default_screen {
+					position: absolute;
+					bottom: -4px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: auto;
+					img {
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1200px) {
+	#section_how_works {
+		.wrapper_how_works {
+			.purple_container {
+				padding: 80px 24px 0;
+			}
+		}
+	}
+}
+@media screen and (max-width: 768px) {
+	#section_how_works {
+		padding: 72px 0;
+		.wrapper_how_works {
+			.title {
+				margin-bottom: 40px;
+				p {
+					display: none;
+				}
+			}
+			.purple_container {
+				padding: 40px 24px 0 24px;
+				display: flex;
+				flex-direction: column;
+				.tabs {
+					flex-direction: row;
+					gap: 0;
+					overflow: scroll;
+					margin-bottom: 72px;
+					.tab {
+						flex-direction: column;
+						align-items: flex-start;
+						gap: 16px;
+						min-width: 260px;
+						.tab_content {
+							gap: 0;
+						}
+					}
+				}
+				.preview {
+					width: 100%;
+					.mockup {
+						img {
+							width: 100%;
+						}
+					}
+					.default_screen {
+						img {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
