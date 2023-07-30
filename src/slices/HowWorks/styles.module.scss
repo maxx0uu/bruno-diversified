@@ -1,9 +1,4 @@
-@import '@/styles/sass/variables/colors.scss';
-@import '@/styles/sass/variables/font-family.scss';
-@import '@/styles/sass/common/mixins.scss';
-@import '@/styles/sass/common/texts.scss';
-@import '@/styles/sass/common/grid-responsive.scss';
-@import '@/styles/sass/common/breakpoints.scss';
+@import "@/styles/sass/globals.scss";
 
 #section_how_works {
 	padding: 160px 0;

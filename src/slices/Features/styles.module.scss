@@ -1,15 +1,10 @@
-@import '@/styles/sass/variables/colors.scss';
-@import '@/styles/sass/variables/font-family.scss';
-@import '@/styles/sass/common/mixins.scss';
-@import '@/styles/sass/common/texts.scss';
-@import '@/styles/sass/common/grid-responsive.scss';
-@import '@/styles/sass/common/breakpoints.scss';
+@import "@/styles/sass/globals.scss";
 
-#section_features {
+.section_wrapper {
 	background-color: $colorGreyscale_1;
-  color: $colorGreyscale_6;
+	color: $colorGreyscale_6;
 	padding: 160px 0;
-	.wrapper_features {
+	.wrapper {
 		@include styleGrid("width", 10);
 		h2,
 		p,
@@ -20,7 +15,7 @@
 			text-align: center;
 			margin-bottom: 80px;
 		}
-		.features {
+		.container_features {
 			display: flex;
 			flex-direction: column;
 			gap: 120px;
@@ -63,7 +58,7 @@
 						}
 						li {
 							@include styleP("medium", $colorGreyscale_6);
-							opacity: .7;
+							opacity: 0.7;
 							margin-bottom: 16px;
 							margin-left: 24px;
 							&:last-of-type {
@@ -83,20 +78,19 @@
 	}
 }
 @media screen and (max-width: 1024px) {
-	#section_features {
+	.section_wrapper {
 		padding: 72px 0;
-		.wrapper_features {
+		.wrapper {
 			@include styleGrid("wrapper");
 			h2 {
 				margin-bottom: 40px;
 			}
-			.features {
+			.container_features {
 				flex-direction: column;
 				.feature {
 					flex-direction: column;
 					gap: 40px;
 					.gallery {
-						
 						gap: 12px;
 						.col_1 {
 							gap: 12px;

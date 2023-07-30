@@ -1,13 +1,8 @@
-@import '@/styles/sass/variables/colors.scss';
-@import '@/styles/sass/variables/font-family.scss';
-@import '@/styles/sass/common/mixins.scss';
-@import '@/styles/sass/common/texts.scss';
-@import '@/styles/sass/common/grid-responsive.scss';
-@import '@/styles/sass/common/breakpoints.scss';
+@import "@/styles/sass/globals.scss";
 
-#section_gallery {
+.section_wrapper {
 	background-color: $colorGreyscale_1;
-	.wrapper_gallery {
+	.wrapper {
 		@include styleGrid("width", 10);
 		margin-left: auto;
 		margin-right: auto;
@@ -27,14 +22,14 @@
 	}
 }
 @media screen and (max-width: 1200px) {
-	#section_gallery {
-		.wrapper_gallery {
+	.section_wrapper {
+		.wrapper {
 			@include styleGrid("wrapper");
 		}
 	}
 }
 @media screen and (max-width: 1024px) {
-	#section_gallery {
+	.section_wrapper {
 		display: none;
 	}
 }

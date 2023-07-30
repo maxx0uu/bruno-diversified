@@ -1,15 +1,10 @@
-@import '@/styles/sass/variables/colors.scss';
-@import '@/styles/sass/variables/font-family.scss';
-@import '@/styles/sass/common/mixins.scss';
-@import '@/styles/sass/common/texts.scss';
-@import '@/styles/sass/common/grid-responsive.scss';
-@import '@/styles/sass/common/breakpoints.scss';
+@import "@/styles/sass/globals.scss";
 
-#section_faq {
+.section_wrapper {
 	padding: 160px 0;
 	background-color: $colorGreyscale_1;
 	color: $colorGreyscale_6;
-	.wrapper_faq {
+	.wrapper {
 		@include styleGrid("width", 10);
 		display: flex;
 		justify-content: space-between;
@@ -23,18 +18,18 @@
 				gap: 8px;
 			}
 		}
-		.questions {
+		.container_questions {
 			@include styleGrid("width", 6);
 			.question {
 				cursor: pointer;
 				padding-top: 26px;
 				padding-bottom: 26px;
-				border-bottom: 0.5px solid #ffffffb3;
+				border-bottom: 1px solid #ffffffb3;
 				.question_title {
 					@include styleP("big", $colorGreyscale_6);
 					display: flex;
 					justify-content: space-between;
-					.question_tab_icon {
+					.question_icon {
 						width: 32px;
 						height: 32px;
 						border-radius: 50%;
@@ -57,9 +52,9 @@
 	}
 }
 @media screen and (max-width: 1024px) {
-	#section_faq {
+	.section_wrapper {
 		padding: 72px 0;
-		.wrapper_faq {
+		.wrapper {
 			flex-direction: column;
 			@include styleGrid("wrapper");
 			.title {
@@ -68,7 +63,7 @@
 					margin-bottom: 16px;
 				}
 			}
-			.questions {
+			.container_questions {
 				width: 100%;
 				.question {
 					padding-top: 24px;
