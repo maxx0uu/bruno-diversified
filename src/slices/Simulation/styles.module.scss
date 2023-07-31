@@ -197,10 +197,10 @@
 				left: 50%;
 			}
 			.slider_prev {
-				transform: translateX(calc(-50% - 2px));
+				transform: translateX(calc(-100% - 2px));
 			}
 			.slider_next {
-				transform: translateX(calc(50% + 2px));
+				transform: translateX(calc(100% + 2px));
 			}
 			.testimonial {
 				background-color: $colorGreyscale_6;

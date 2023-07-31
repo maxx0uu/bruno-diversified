@@ -5,9 +5,9 @@
 @import '@/styles/sass/common/grid-responsive.scss';
 @import '@/styles/sass/common/breakpoints.scss';
 
-#section_footer {
-	padding: 72px 0 32px;
+.section_wrapper {
 	@include styleGrid("wrapper");
+	padding: 72px 0 32px;
 	.container_footer_top {
 		display: flex;
 		justify-content: space-between;
@@ -122,7 +122,7 @@
 	}
 }
 @media screen and (max-width: 1200px) {
-	#section_footer {
+	.section_wrapper {
 		.container_footer_top {
 			flex-wrap: wrap;
 			.footer_sitemap {
@@ -138,7 +138,7 @@
 	}
 }
 @media screen and (max-width: 768px) {
-	#section_footer {
+	.section_wrapper {
 		@include styleGrid("wrapper");
 		.container_footer_top {
 			flex-direction: column;
@@ -152,6 +152,9 @@
 						h6 {
 							padding: 20px 0;
 							font-size: 16px;
+						}
+						.footer_tab_icon {
+							display: flex;
 						}
 					}
 					.sitemap_list {

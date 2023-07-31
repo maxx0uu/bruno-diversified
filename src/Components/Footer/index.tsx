@@ -1,8 +1,13 @@
+// Import components
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
 
+// React tools
+import { useEffect, useState } from "react";
+
+// External resources
 import gsap from "gsap";
 
+// Import styles
 import styles from "./styles.module.scss";
 
 const sitemap = [
@@ -35,16 +40,16 @@ export const Footer = () => {
   useEffect(() => {
     footerState.map((category, key) => {
       if (category == true) {
-        gsap.to(`.sitemap-list-${key}`, { height: "auto", paddingBottom: 24 });
-        gsap.to(`.footer-tab-icon-${key}`, {
+        gsap.to(`.sitemap_list-${key}`, { height: "auto", paddingBottom: 24 });
+        gsap.to(`.footer_tab_icon_${key}`, {
           rotate: -180,
           borderStyle: "solid",
           borderWidth: 1,
           borderColor: "white",
         });
       } else {
-        gsap.to(`.sitemap-list-${key}`, { height: 0, paddingBottom: 0 });
-        gsap.to(`.footer-tab-icon-${key}`, {
+        gsap.to(`.sitemap_list-${key}`, { height: 0, paddingBottom: 0 });
+        gsap.to(`.footer_tab_icon_${key}`, {
           rotate: 0,
           borderWidth: 0,
         });
@@ -53,7 +58,7 @@ export const Footer = () => {
   }, [footerState]);
 
   return (
-    <section id={styles.section_footer}>
+    <section className={styles.section_wrapper}>
       <div className={styles.container_footer_top}>
         <div className={styles.footer_sitemap}>
           {sitemap.map((item, key) => (
@@ -64,7 +69,9 @@ export const Footer = () => {
             >
               <div className={styles.sitemap_item_title}>
                 <h6>{item.title}</h6>
-                <div className={`footer-tab-icon footer-tab-icon-${key}`}>
+                <div
+                  className={`${styles.footer_tab_icon} footer_tab_icon_${key}`}
+                >
                   <svg
                     width="21"
                     height="21"
@@ -94,7 +101,7 @@ export const Footer = () => {
                 </div>
               </div>
 
-              <ul className={`sitemap-list sitemap-list-${key}`}>
+              <ul className={`${styles.sitemap_list} sitemap_list-${key}`}>
                 {item.list.map((listItem, key: number) => (
                   <li key={key}>{listItem}</li>
                 ))}
