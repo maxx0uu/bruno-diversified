@@ -183,10 +183,13 @@
 		.container_testimonials {
 			position: relative;
 			display: flex;
-			overflow: hidden;
+			// overflow: hidden;
 			gap: 8px;
 			padding-top: 144px;
 			padding-bottom: 376px;
+			.slider_testimonials {
+				transform: translateX(-328px);
+			}
 			.slider_btn {
 				position: absolute;
 				border: 1px solid $colorGreyscale_6;

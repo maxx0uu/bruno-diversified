@@ -89,7 +89,7 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
 
   useEffect(() => {
     tl.set(".testimonial", {
-      x: (i) => i * 328 - 328,
+      x: (i) => i * 328,
     });
   }, []);
 
@@ -97,9 +97,7 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
     tl.to(".testimonial", {
       x: "-=328",
       modifiers: {
-        x: gsap.utils.unitize(
-          (x) => (parseFloat(x) % testimonialsLength) + 328
-        ),
+        x: gsap.utils.unitize((x) => parseFloat(x) % testimonialsLength),
       },
     });
   };
@@ -108,14 +106,10 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
       tl.to(".testimonial", {
         x: "+=328",
         modifiers: {
-          x: gsap.utils.unitize(
-            (x) => (parseFloat(x) % testimonialsLength) - 328
-          ),
+          x: gsap.utils.unitize((x) => parseFloat(x) % testimonialsLength),
         },
       });
   };
-
-  useEffect(() => {}, []);
 
   return (
     <section
@@ -213,32 +207,37 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
               className={`${styles.slider_btn} ${styles.slider_next}`}
               onClick={() => nextSlide()}
             ></div>
-            {slice.items.map((testi, key: number) => {
-              return (
-                <div className={`${styles.testimonial} testimonial`} key={key}>
-                  <div className={styles.title}>
-                    <PrismicRichText field={testi.title} />
-                  </div>
-                  <div className={styles.note}>
-                    {testi.note && "⭐️ ".repeat(parseInt(testi.note))}
-                  </div>
-                  <div className={styles.body}>
-                    <PrismicRichText field={testi.body} />
-                  </div>
-                  <div className={styles.author}>
-                    <div className={styles.image}>
-                      <PrismicNextImage field={testi.picture} />
+            <div className={styles.slider_testimonials}>
+              {slice.items.map((testi, key: number) => {
+                return (
+                  <div
+                    className={`${styles.testimonial} testimonial`}
+                    key={key}
+                  >
+                    <div className={styles.title}>
+                      <PrismicRichText field={testi.title} />
                     </div>
-                    <div className={styles.name}>
-                      <PrismicRichText field={testi.name} />
+                    <div className={styles.note}>
+                      {testi.note && "⭐️ ".repeat(parseInt(testi.note))}
                     </div>
-                    <div className={styles.job}>
-                      <PrismicRichText field={testi.job} />
+                    <div className={styles.body}>
+                      <PrismicRichText field={testi.body} />
+                    </div>
+                    <div className={styles.author}>
+                      <div className={styles.image}>
+                        <PrismicNextImage field={testi.picture} />
+                      </div>
+                      <div className={styles.name}>
+                        <PrismicRichText field={testi.name} />
+                      </div>
+                      <div className={styles.job}>
+                        <PrismicRichText field={testi.job} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

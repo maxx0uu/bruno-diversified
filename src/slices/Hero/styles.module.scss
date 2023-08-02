@@ -56,28 +56,30 @@
 				}
 			}
 		}
-		.container_carousels {
+		.container_carousels_desktop {
+			display: block;
 			width: 416px;
 			position: relative;
 			overflow: hidden;
-			.carousel_wrapper {
-				height: 100%;
-			}
-			.carousel {
+			.carousel_0 {
 				position: absolute;
-				width: 200px;
+				left: 216px;
+				transform: translateY(1000px);
 				img {
 					position: absolute;
 				}
 			}
-			.carousel_0 {
-				transform: translateY(-350px);
-				left: 216px;
-			}
 			.carousel_1 {
-				transform: translateY(-1050px);
+				position: absolute;
 				left: 0;
+				transform: translateY(-316px);
+				img {
+					position: absolute;
+				}
 			}
+		}
+		.container_carousels_mobile {
+			display: none;
 		}
 	}
 }
@@ -89,27 +91,35 @@
 			.texts {
 				width: 100%;
 			}
-			.container_carousels {
-				width: 100%;
+			.container_carousels_desktop {
+				display: none;
+			}
+			.container_carousels_mobile {
+				display: block;
 				height: 376px;
-				.carousel {
-					flex-direction: row;
-					height: 180px;
+				position: relative;
+				overflow: hidden;
+				.carousel_0 {
+					position: absolute;
+					top: 0;
+					transform: translateX(-186px);
 					img {
+						position: absolute;
 						height: 180px;
 						width: auto;
 					}
 				}
-				.carousel_0 {
-					transform: translateY(0);
-					left: -186px;
-					top: 0;
-				}
 				.carousel_1 {
-					transform: translateY(0);
+					position: absolute;
 					top: 196px;
-					left: -236px;
+					transform: translateX(1100px);
+					img {
+						position: absolute;
+						height: 180px;
+						width: auto;
+					}
 				}
+	
 			}
 		}
 	}

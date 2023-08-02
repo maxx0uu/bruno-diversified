@@ -6,32 +6,10 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices/";
 
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import gsap from "gsap";
-import { Context, createContext } from "vm";
-import { sliceZone } from "@prismicio/client/dist/helpers/isFilled";
 import { Footer } from "@/Components/Footer";
-
-// Sitemap datas
-const sitemap = [
-  {
-    title: "Product",
-    list: ["Market", "Pricing", "Get the app", "Refer & earn"],
-  },
-  {
-    title: "About us",
-    list: ["Manifest", "We're hiring!", "Legal hub"],
-  },
-  {
-    title: "Academy",
-    list: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
-  },
-  {
-    title: "Help",
-    list: ["FAQ", "Community", "contact@diversified.fi"],
-  },
-];
 
 type HomeProps = InferGetStaticPropsType<typeof getStaticProps>;
 
