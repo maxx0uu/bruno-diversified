@@ -1,16 +1,19 @@
+// Next
+import type { AppProps } from "next/app";
+
+// Prismic
+import { PrismicPreview } from "@prismicio/next";
+import { repositoryName } from "@/prismicio";
+
+// Import styles
 import "@/styles/reset.css";
 import "@/styles/globals.css";
 
-import type { AppProps } from "next/app";
-import { PrismicPreview } from "@prismicio/next";
-
-import { repositoryName } from "@/prismicio";
-
 export default function App({ Component, pageProps }: AppProps) {
-	return (
-		<>
-			<Component {...pageProps} />
-			<PrismicPreview repositoryName={repositoryName} />
-		</>
-	);
+  return (
+    <>
+      <Component {...pageProps} />
+      <PrismicPreview repositoryName={repositoryName} />
+    </>
+  );
 }
