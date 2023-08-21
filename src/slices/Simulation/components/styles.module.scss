@@ -93,3 +93,22 @@
     }
   }
 }
+@media screen and (max-width: 1200px) {
+  .container_testimonials {
+    h2 {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .container_testimonials {
+    text-align: center;
+    margin-top: 144px;
+    h2 {
+      color: $colorGreyscale_6;
+      @include styleGrid("wrapper");
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 // Various
 import gsap from "gsap";
+import { useWindowWidthContext } from "../../../context/WindowWidthContext";
 
 export type NavProps = SliceComponentProps<Content.NavSlice>;
 
@@ -22,12 +23,7 @@ const Nav = ({ slice }: NavProps): JSX.Element => {
     gsap.to(`.nav-link-${key} a span`, { width: 0 });
   };
 
-  // Get window width on each resize
-  const [windowWidth, setWindowWidth] = useState(0);
-  useEffect(() => {
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
-    window.addEventListener("load", () => setWindowWidth(window.innerWidth));
-  }, [windowWidth]);
+  const { windowWidth } = useWindowWidthContext();
 
   // Manage responsive nav
   useEffect(() => {
@@ -63,7 +59,7 @@ const Nav = ({ slice }: NavProps): JSX.Element => {
 
   return (
     <>
-      {/* <section
+      <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
         id="section-nav"
@@ -90,7 +86,7 @@ const Nav = ({ slice }: NavProps): JSX.Element => {
             ))}
           </ul>
         </nav>
-      </section> */}
+      </section>
     </>
   );
 };

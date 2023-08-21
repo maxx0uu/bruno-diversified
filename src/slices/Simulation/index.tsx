@@ -160,10 +160,10 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
           </div>
         </div>
       </div>
-      {/* <Testimonials
+      <Testimonials
         title={slice.primary.testimonials_title}
         datas={slice.items}
-      /> */}
+      />
     </section>
   );
 };
