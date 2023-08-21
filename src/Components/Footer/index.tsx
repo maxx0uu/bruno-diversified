@@ -30,10 +30,11 @@ const sitemap = [
 ];
 
 export const Footer = () => {
+  const maxLength = 4;
   const getFooterState = (key: number) => {
-    const tempFooter = [false, false, false, false];
-    tempFooter[key] = true;
-    setFooterState(tempFooter);
+    //const tempFooter = [false, false, false, false];
+    //tempFooter[key] = true;
+    setFooterState(Array.from({ length: maxLength }, (_, i) => key === i));
   };
   const [footerState, setFooterState] = useState([true, false, false, false]);
 

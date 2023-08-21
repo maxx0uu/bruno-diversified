@@ -14,6 +14,7 @@ import gsap from "gsap";
 
 // Import styles
 import styles from "./styles.module.scss";
+import { Testimonials } from "./components/testimonials";
 
 export type SimulationProps = SliceComponentProps<Content.SimulationSlice>;
 
@@ -25,24 +26,15 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
   // Minimize the tab name and add dots at the end
   useEffect(() => {
     if (slice.primary.first_item_name && slice.primary.second_item_name) {
-      const baseNameFirst = slice.primary.first_item_name.split("");
-      const baseNameSecond = slice.primary.second_item_name.split("");
-
-      let newFirst = [];
-      let newSecond = [];
-      if (baseNameFirst.length > 10) {
-        for (let i = 0; i < 9; i++) {
-          newFirst.push(baseNameFirst[i]);
+      const shortenName = (name: string) => {
+        if (name.length > 10) {
+          return name.slice(0, 9) + "...";
         }
-      }
-      const newFirstTabName = newFirst.join("") + "...";
+        return name;
+      };
 
-      if (baseNameSecond.length > 10) {
-        for (let i = 0; i < 9; i++) {
-          newSecond.push(baseNameSecond[i]);
-        }
-      }
-      const newSecondTabName = newSecond.join("") + "...";
+      const newFirstTabName = shortenName(slice.primary.first_item_name);
+      const newSecondTabName = shortenName(slice.primary.second_item_name);
 
       setTabName([newFirstTabName, newSecondTabName]);
     }
@@ -84,32 +76,35 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
     window.addEventListener("load", () => setWindowWidth(window.innerWidth));
   }, [windowWidth]);
 
-  const testimonialsLength = slice.items.length * 328;
-  const tl = gsap.timeline();
+  // const testimonialsLength = slice.items.length * 328;
+  // const tl = gsap.timeline();
 
-  useEffect(() => {
-    tl.set(".testimonial", {
-      x: (i) => i * 328,
-    });
-  }, []);
+  // useEffect(() => {
+  //   tl.set(".testimonial", {
+  //     x: (i) => i * 328,
+  //   });
+  // }, []);
 
-  const prevSlide = () => {
-    tl.to(".testimonial", {
-      x: "-=328",
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % testimonialsLength),
-      },
-    });
-  };
-  const nextSlide = () => {
-    if (testimonialsLength - 328)
-      tl.to(".testimonial", {
-        x: "+=328",
-        modifiers: {
-          x: gsap.utils.unitize((x) => parseFloat(x) % testimonialsLength),
-        },
-      });
-  };
+  // const prevSlide = () => {
+  //   if (true) {
+  //     tl.to(".testimonial", {
+  //       x: "-=328",
+  //       // modifiers: {
+  //       //   x: gsap.utils.unitize((x) => parseFloat(x) % testimonialsLength),
+  //       // },
+  //     });
+  //   }
+  //   console.log(document.getElementsByClassName("testimonial"));
+  // };
+  // const nextSlide = () => {
+  //   if (testimonialsLength - 328)
+  //     tl.to(".testimonial", {
+  //       x: "+=328",
+  //       // modifiers: {
+  //       //   x: gsap.utils.unitize((x) => parseFloat(x) % testimonialsLength),
+  //       // },
+  //     });
+  // };
 
   return (
     <section
@@ -195,18 +190,48 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className={styles.wrapper_testimonials}>
+      {/* <div className={styles.wrapper_testimonials}>
         <div className={styles.testimonials}>
           <PrismicRichText field={slice.primary.testimonials_title} />
           <div className={styles.container_testimonials}>
             <div
               className={`${styles.slider_btn} ${styles.prev}`}
               onClick={() => prevSlide()}
-            ></div>
+            >
+              <svg
+                width="7"
+                height="10"
+                viewBox="0 0 7 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6.39893 5L1.59816 10L0.398926 8.74901L3.99854 5L0.398932 1.251L1.59816 0L6.39893 5Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
             <div
               className={`${styles.slider_btn} ${styles.slider_next}`}
               onClick={() => nextSlide()}
-            ></div>
+            >
+              <svg
+                width="6"
+                height="10"
+                viewBox="0 0 6 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M4.37114e-07 5L4.80077 -1.04841e-07L6 1.25099L2.40038 5L5.99999 8.749L4.80076 10L4.37114e-07 5Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
             <div className={styles.slider_testimonials}>
               {slice.items.map((testi, key: number) => {
                 return (
@@ -240,7 +265,11 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <Testimonials
+        title={slice.primary.testimonials_title}
+        datas={slice.items}
+      />
     </section>
   );
 };

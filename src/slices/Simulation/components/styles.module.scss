@@ -1,0 +1,95 @@
+@import "@/styles/sass/variables/colors.scss";
+@import "@/styles/sass/variables/font-family.scss";
+@import "@/styles/sass/common/mixins.scss";
+@import "@/styles/sass/common/texts.scss";
+@import "@/styles/sass/common/grid-responsive.scss";
+@import "@/styles/sass/common/breakpoints.scss";
+
+.wrapper_testimonials {
+  @include styleGrid("wrapper");
+}
+
+.container_testimonials {
+  text-align: center;
+  margin-top: 144px;
+  h2 {
+    @include styleGrid("width", 10);
+    color: $colorGreyscale_6;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.wrapper_slider {
+  .container_navigation {
+    @include styleGrid("wrapper");
+    color: $colorGreyscale_6;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding-top: 24px;
+    .slider_btn {
+      border: 1px solid $colorGreyscale_6;
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .slider_prev {
+      // transform: translateX(calc(100% + 4px));
+    }
+    .slider_next {
+      // transform: translateX(calc(-100% - 4px));
+    }
+  }
+  .container_slider {
+    @include styleGrid("wrapper");
+    display: flex;
+    gap: 8px;
+    overflow: scroll;
+    padding-top: 72px;
+    .container_testimonial {
+      background-color: $colorGreyscale_6;
+      border-radius: 24px 24px 0 0;
+      padding: 40px;
+      min-width: 320px;
+      min-height: 368px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      .testimonial_content {
+        .title {
+          @include styleP("big");
+          font-family: $font_2_bold;
+          margin-bottom: 16px;
+          text-align: left;
+        }
+        .note {
+          margin-bottom: 16px;
+        }
+        .body {
+          @include styleP("medium", $colorGreyscale_2);
+          margin-bottom: 16px;
+        }
+      }
+      .testimonial_author {
+        .image {
+          width: 40px;
+          height: 40px;
+          margin-bottom: 16px;
+        }
+        .name {
+          font-family: $font_2_extrabold;
+          font-size: 14px;
+        }
+        .job {
+          @include styleP("tiny");
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

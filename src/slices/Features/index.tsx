@@ -17,6 +17,7 @@ export type FeaturesProps = SliceComponentProps<Content.FeaturesSlice>;
 
 const Features = ({ slice, context }: FeaturesProps): JSX.Element => {
   // Call nested components
+  // Add types to Prismic components to avoid undefined errors
   const { ctas } = context as {
     ctas: ReadonlyArray<CtaDocument<string>>;
   };
@@ -28,9 +29,9 @@ const Features = ({ slice, context }: FeaturesProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id="section-features"
-      className={styles.section_wrapper}
+      className={styles.section_features}
     >
-      <div className={`${styles.wrapper} wrapper`}>
+      <div className={`${styles.wrapper_features} wrapper`}>
         <PrismicRichText field={slice.primary.title} />
         <div className={styles.container_features}>
           {slice.items.map((feature, key) => {

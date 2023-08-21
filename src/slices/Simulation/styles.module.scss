@@ -187,9 +187,6 @@
 			gap: 8px;
 			padding-top: 144px;
 			padding-bottom: 376px;
-			.slider_testimonials {
-				transform: translateX(-328px);
-			}
 			.slider_btn {
 				position: absolute;
 				border: 1px solid $colorGreyscale_6;
@@ -198,12 +195,15 @@
 				border-radius: 50%;
 				top: 24px;
 				left: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 			.slider_prev {
-				transform: translateX(calc(-100% - 2px));
+				transform: translateX(calc(100% + 4px));
 			}
 			.slider_next {
-				transform: translateX(calc(100% + 2px));
+				transform: translateX(calc(-100% - 4px));
 			}
 			.testimonial {
 				background-color: $colorGreyscale_6;

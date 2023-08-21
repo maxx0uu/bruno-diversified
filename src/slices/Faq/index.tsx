@@ -45,7 +45,7 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
   // Render the FAQ styles when the FAQ state change
   useEffect(() => {
     questionState.map((question, key) => {
-      if (question == true) {
+      if (question) {
         gsap.to(`.question-body-${key}`, { height: "auto" });
         gsap.to(`.question-tab-icon-${key}`, {
           rotate: -180,
@@ -62,7 +62,7 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
       }
     });
   }, [questionState]);
-
+  console.log(slice);
   return (
     <section
       data-slice-type={slice.slice_type}
