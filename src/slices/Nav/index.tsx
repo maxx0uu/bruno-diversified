@@ -62,34 +62,36 @@ const Nav = ({ slice }: NavProps): JSX.Element => {
   };
 
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      id="section-nav"
-    >
-      <nav>
-        <PrismicNextImage field={slice.primary.logo} />
-        <div className="burger" onClick={() => burgerAnimation(null)}>
-          <div className="burger-topline"></div>
-          <div className="burger-botline"></div>
-        </div>
-        <ul className="nav-list">
-          {slice.items.map((item, key) => (
-            <li className={"nav-link-" + key} key={key}>
-              <PrismicNextLink
-                key={key}
-                field={item.nav_url}
-                onMouseEnter={() => hoverNavLinkIn(key)}
-                onMouseLeave={() => hoverNavLinkOut(key)}
-              >
-                {item.nav_text}
-                <span></span>
-              </PrismicNextLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </section>
+    <>
+      {/* <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        id="section-nav"
+      >
+        <nav>
+          <PrismicNextImage field={slice.primary.logo} />
+          <div className="burger" onClick={() => burgerAnimation(null)}>
+            <div className="burger-topline"></div>
+            <div className="burger-botline"></div>
+          </div>
+          <ul className="nav-list">
+            {slice.items.map((item, key) => (
+              <li className={"nav-link-" + key} key={key}>
+                <PrismicNextLink
+                  key={key}
+                  field={item.nav_url}
+                  onMouseEnter={() => hoverNavLinkIn(key)}
+                  onMouseLeave={() => hoverNavLinkOut(key)}
+                >
+                  {item.nav_text}
+                  <span></span>
+                </PrismicNextLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </section> */}
+    </>
   );
 };
 

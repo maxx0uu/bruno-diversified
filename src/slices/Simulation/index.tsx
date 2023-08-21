@@ -76,36 +76,6 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
     window.addEventListener("load", () => setWindowWidth(window.innerWidth));
   }, [windowWidth]);
 
-  // const testimonialsLength = slice.items.length * 328;
-  // const tl = gsap.timeline();
-
-  // useEffect(() => {
-  //   tl.set(".testimonial", {
-  //     x: (i) => i * 328,
-  //   });
-  // }, []);
-
-  // const prevSlide = () => {
-  //   if (true) {
-  //     tl.to(".testimonial", {
-  //       x: "-=328",
-  //       // modifiers: {
-  //       //   x: gsap.utils.unitize((x) => parseFloat(x) % testimonialsLength),
-  //       // },
-  //     });
-  //   }
-  //   console.log(document.getElementsByClassName("testimonial"));
-  // };
-  // const nextSlide = () => {
-  //   if (testimonialsLength - 328)
-  //     tl.to(".testimonial", {
-  //       x: "+=328",
-  //       // modifiers: {
-  //       //   x: gsap.utils.unitize((x) => parseFloat(x) % testimonialsLength),
-  //       // },
-  //     });
-  // };
-
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -190,86 +160,10 @@ const Simulation = ({ slice }: SimulationProps): JSX.Element => {
           </div>
         </div>
       </div>
-      {/* <div className={styles.wrapper_testimonials}>
-        <div className={styles.testimonials}>
-          <PrismicRichText field={slice.primary.testimonials_title} />
-          <div className={styles.container_testimonials}>
-            <div
-              className={`${styles.slider_btn} ${styles.prev}`}
-              onClick={() => prevSlide()}
-            >
-              <svg
-                width="7"
-                height="10"
-                viewBox="0 0 7 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M6.39893 5L1.59816 10L0.398926 8.74901L3.99854 5L0.398932 1.251L1.59816 0L6.39893 5Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-            <div
-              className={`${styles.slider_btn} ${styles.slider_next}`}
-              onClick={() => nextSlide()}
-            >
-              <svg
-                width="6"
-                height="10"
-                viewBox="0 0 6 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M4.37114e-07 5L4.80077 -1.04841e-07L6 1.25099L2.40038 5L5.99999 8.749L4.80076 10L4.37114e-07 5Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-            <div className={styles.slider_testimonials}>
-              {slice.items.map((testi, key: number) => {
-                return (
-                  <div
-                    className={`${styles.testimonial} testimonial`}
-                    key={key}
-                  >
-                    <div className={styles.title}>
-                      <PrismicRichText field={testi.title} />
-                    </div>
-                    <div className={styles.note}>
-                      {testi.note && "⭐️ ".repeat(parseInt(testi.note))}
-                    </div>
-                    <div className={styles.body}>
-                      <PrismicRichText field={testi.body} />
-                    </div>
-                    <div className={styles.author}>
-                      <div className={styles.image}>
-                        <PrismicNextImage field={testi.picture} />
-                      </div>
-                      <div className={styles.name}>
-                        <PrismicRichText field={testi.name} />
-                      </div>
-                      <div className={styles.job}>
-                        <PrismicRichText field={testi.job} />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div> */}
-      <Testimonials
+      {/* <Testimonials
         title={slice.primary.testimonials_title}
         datas={slice.items}
-      />
+      /> */}
     </section>
   );
 };

@@ -3,15 +3,16 @@ import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 
 // Prismic components
-import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
-import { CtaManager } from "@/Components/Cta";
 
 // Types
 import { CtaDocument } from "../../../prismicio-types";
 
 // Import styles
 import styles from "./styles.module.scss";
+import { useWindowWidthContext } from "../../../context/WindowWidthContext";
+import { CtaManager } from "@/Components/Cta";
+import { PrismicNextImage } from "@prismicio/next";
 
 export type FeaturesProps = SliceComponentProps<Content.FeaturesSlice>;
 
@@ -23,6 +24,8 @@ const Features = ({ slice, context }: FeaturesProps): JSX.Element => {
   };
 
   const featureCta = ctas.find((cta) => cta.uid === "cta-black-bg");
+
+  const { windowWidth } = useWindowWidthContext();
 
   return (
     <section

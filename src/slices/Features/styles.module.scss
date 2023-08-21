@@ -74,9 +74,9 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .section_wrapper {
+  .section_features {
     padding: 72px 0;
-    .wrapper {
+    .wrapper_features {
       @include styleGrid("wrapper");
       h2 {
         margin-bottom: 40px;

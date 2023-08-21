@@ -8,12 +8,15 @@ import { repositoryName } from "@/prismicio";
 // Import styles
 import "@/styles/reset.css";
 import "@/styles/globals.css";
+import { WindowWidthProvider } from "../../context/WindowWidthContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Component {...pageProps} />
-      <PrismicPreview repositoryName={repositoryName} />
+      <WindowWidthProvider>
+        <Component {...pageProps} />
+        <PrismicPreview repositoryName={repositoryName} />
+      </WindowWidthProvider>
     </>
   );
 }

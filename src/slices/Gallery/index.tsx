@@ -7,11 +7,8 @@ import { PrismicNextImage } from "@prismicio/next";
 
 // import styles
 import styles from "./styles.module.scss";
-import { useContext } from "react";
 
 export type GalleryProps = SliceComponentProps<Content.GallerySlice>;
-
-// const wWidth = useContext(WindowWidthContext);
 
 const Gallery = ({ slice }: GalleryProps): JSX.Element => {
   return (
