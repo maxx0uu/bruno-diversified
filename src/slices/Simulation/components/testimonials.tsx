@@ -10,7 +10,6 @@ interface TestimonialsProps {
 }
 
 export const Testimonials = ({ title, datas }: TestimonialsProps) => {
-  console.log(datas);
   return (
     <>
       <div className={styles.wrapper_testimonials}>

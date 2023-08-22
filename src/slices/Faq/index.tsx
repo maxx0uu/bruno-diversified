@@ -40,6 +40,23 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
     const tempQuestions = faqArrayTemplate.fill(false);
     tempQuestions[key] = true;
     setQuestionState(tempQuestions);
+    questionState.map((question, key) => {
+      if (question) {
+        gsap.to(`.question-body-${key}`, { height: "auto" });
+        gsap.to(`.question-tab-icon-${key}`, {
+          rotate: -180,
+          borderStyle: "solid",
+          borderWidth: 1,
+          borderColor: "white",
+        });
+      } else {
+        gsap.to(`.question-body-${key}`, { height: 0 });
+        gsap.to(`.question-tab-icon-${key}`, {
+          rotate: 0,
+          borderWidth: 0,
+        });
+      }
+    });
   };
 
   // Render the FAQ styles when the FAQ state change
@@ -62,7 +79,7 @@ const Faq = ({ slice, context }: FaqProps): JSX.Element => {
       }
     });
   }, [questionState]);
-  console.log(slice);
+
   return (
     <section
       data-slice-type={slice.slice_type}
