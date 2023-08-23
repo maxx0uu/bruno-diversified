@@ -3,6 +3,9 @@ import { Simplify } from "../../../../prismicio-types";
 import { Content, TitleField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import styles from "./styles.module.scss";
+import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
+import { useWindowWidthContext } from "../../../../context/WindowWidthContext";
 
 interface TestimonialsProps {
   title: TitleField;
@@ -10,6 +13,40 @@ interface TestimonialsProps {
 }
 
 export const Testimonials = ({ title, datas }: TestimonialsProps) => {
+  const { windowWidth } = useWindowWidthContext();
+  const [containerWidth, setContainerWidth] = useState(0);
+  const container = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.set(".styles_view_slider__4VjeO", { x: 0 });
+    window.addEventListener(
+      "resize",
+      () =>
+        container.current && setContainerWidth(container.current.clientWidth)
+    );
+    window.addEventListener(
+      "load",
+      () =>
+        container.current && setContainerWidth(container.current.clientWidth)
+    );
+  }, []);
+  const [pushSlide, setPushSlide] = useState(0);
+  const prevSlide = () => {
+    console.log(pushSlide);
+    if (pushSlide > 0) {
+      gsap.to(".styles_view_slider__4VjeO", { x: "+=328", duration: 0.5 });
+      setPushSlide(pushSlide - 1);
+      console.log(pushSlide);
+    }
+  };
+  const nextSlide = () => {
+    if (pushSlide < datas.length - 3) {
+      gsap.to(".styles_view_slider__4VjeO", { x: "-=328", duration: 0.5 });
+      setPushSlide(pushSlide + 1);
+      console.log(pushSlide);
+    }
+  };
+
   return (
     <>
       <div className={styles.wrapper_testimonials}>
@@ -19,7 +56,7 @@ export const Testimonials = ({ title, datas }: TestimonialsProps) => {
             <div className={styles.container_navigation}>
               <div
                 className={`${styles.slider_btn} ${styles.slider_next}`}
-                // onClick={() => nextSlide()}
+                onClick={() => prevSlide()}
               >
                 <svg
                   width="6"
@@ -38,7 +75,7 @@ export const Testimonials = ({ title, datas }: TestimonialsProps) => {
               </div>
               <div
                 className={`${styles.slider_btn} ${styles.prev}`}
-                // onClick={() => prevSlide()}
+                onClick={() => nextSlide()}
               >
                 <svg
                   width="7"
@@ -56,38 +93,40 @@ export const Testimonials = ({ title, datas }: TestimonialsProps) => {
                 </svg>
               </div>
             </div>
-            <div className={styles.container_slider}>
-              {datas.map((testi: any, key: number) => {
-                return (
-                  <div
-                    className={`${styles.container_testimonial} testimonial`}
-                    key={key}
-                  >
-                    <div className={styles.testimonial_content}>
-                      <div className={styles.title}>
-                        <PrismicRichText field={testi.title} />
+            <div className={styles.container_slider} ref={container}>
+              <div className={styles.view_slider}>
+                {datas.map((testi: any, key: number) => {
+                  return (
+                    <div
+                      className={`${styles.container_testimonial} testimonial`}
+                      key={key}
+                    >
+                      <div className={styles.testimonial_content}>
+                        <div className={styles.title}>
+                          <PrismicRichText field={testi.title} />
+                        </div>
+                        <div className={styles.note}>
+                          {testi.note && "⭐️ ".repeat(parseInt(testi.note))}
+                        </div>
+                        <div className={styles.body}>
+                          <PrismicRichText field={testi.body} />
+                        </div>
                       </div>
-                      <div className={styles.note}>
-                        {testi.note && "⭐️ ".repeat(parseInt(testi.note))}
-                      </div>
-                      <div className={styles.body}>
-                        <PrismicRichText field={testi.body} />
+                      <div className={styles.testimonial_author}>
+                        <div className={styles.image}>
+                          <PrismicNextImage field={testi.picture} />
+                        </div>
+                        <div className={styles.name}>
+                          <PrismicRichText field={testi.name} />
+                        </div>
+                        <div className={styles.job}>
+                          <PrismicRichText field={testi.job} />
+                        </div>
                       </div>
                     </div>
-                    <div className={styles.testimonial_author}>
-                      <div className={styles.image}>
-                        <PrismicNextImage field={testi.picture} />
-                      </div>
-                      <div className={styles.name}>
-                        <PrismicRichText field={testi.name} />
-                      </div>
-                      <div className={styles.job}>
-                        <PrismicRichText field={testi.job} />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
