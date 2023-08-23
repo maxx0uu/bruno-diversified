@@ -97,6 +97,10 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .wrapper_testimonials {
+    margin: 0;
+    width: 100%;
+  }
   .container_testimonials {
     text-align: center;
     margin-top: 144px;
